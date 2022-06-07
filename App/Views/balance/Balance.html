@@ -5,7 +5,7 @@
 
 
 {% block body %}
-
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 	<div class="row">
 		<h1>{{ title }}</h1>
@@ -106,5 +106,7 @@
 				{% else %}
 					<a href="/signup/new">Sign up</a> or <a href="/login">log in</a>.
 				{% endif %}
+				
+				<script type="text/javascript" src="/js/chart.js"></script>
 
 {% endblock %}
