@@ -69,6 +69,26 @@ class Profile extends Authenticated
 			]);
 			}
 	}
+	public function PaymentCategoryAction()
+	{
+		View::renderTemplate('Profile/PaymentCategory.html',[
+		'user'=>$this->user
+		]);
+	}
+	public function AddPaymentCategoryAction()
+	{
+		
+		
+		if($this->user->AddPaymentCategory($_POST)){
+			Flash::addMessage('Changes saved');
+			$this->redirect('/profile/show');
+		}else{
+			
+			View::renderTemplate('Profile/edit.html',[
+				'user'=>$this->user
+			]);
+			}
+	}
 	
 	
 	public function updateAction()

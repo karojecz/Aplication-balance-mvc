@@ -580,4 +580,20 @@ class User extends \Core\Model
 		
 		
 	}
+	public  function AddPaymentCategory($data)
+	{
+		 $sql = 'INSERT INTO payment_methods_assigned_to_users ( user_id, name)
+                VALUES (:user_id, :name)';
+
+        $db = static::getDB();
+        $stmt = $db->prepare($sql);
+
+        
+        $stmt->bindValue(':user_id', $this->id, PDO::PARAM_INT);
+        $stmt->bindValue(':name',$data['payment-category'], PDO::PARAM_STR);
+
+        return $stmt->execute();
+		
+		
+	}
 }
