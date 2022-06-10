@@ -564,4 +564,20 @@ class User extends \Core\Model
 		
 		
 	}
+	public  function AddIncomeCategory($data)
+	{
+		 $sql = 'INSERT INTO incomes_category_assigned_to_users ( user_id, name)
+                VALUES (:user_id, :name)';
+
+        $db = static::getDB();
+        $stmt = $db->prepare($sql);
+
+        
+        $stmt->bindValue(':user_id', $this->id, PDO::PARAM_INT);
+        $stmt->bindValue(':name',$data['income-category'], PDO::PARAM_STR);
+
+        return $stmt->execute();
+		
+		
+	}
 }

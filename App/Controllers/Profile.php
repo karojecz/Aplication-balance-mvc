@@ -49,6 +49,26 @@ class Profile extends Authenticated
 			]);
 			}
 	}
+	public function IncomeCategoryAction()
+	{
+		View::renderTemplate('Profile/IncomeCategory.html',[
+		'user'=>$this->user
+		]);
+	}
+	public function AddIncomeCategoryAction()
+	{
+		
+		
+		if($this->user->AddIncomeCategory($_POST)){
+			Flash::addMessage('Changes saved');
+			$this->redirect('/profile/show');
+		}else{
+			
+			View::renderTemplate('Profile/edit.html',[
+				'user'=>$this->user
+			]);
+			}
+	}
 	
 	
 	public function updateAction()
