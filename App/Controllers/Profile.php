@@ -28,6 +28,29 @@ class Profile extends Authenticated
 		'user'=>$this->user
 		]);
 	}
+	
+	public function ExpenseCategoryAction()
+	{
+		View::renderTemplate('Profile/ExpenseCategory.html',[
+		'user'=>$this->user
+		]);
+	}
+	public function AddExpenseCategoryAction()
+	{
+		
+		
+		if($this->user->AddExpenseCategory($_POST)){
+			Flash::addMessage('Changes saved');
+			$this->redirect('/profile/show');
+		}else{
+			
+			View::renderTemplate('Profile/edit.html',[
+				'user'=>$this->user
+			]);
+			}
+	}
+	
+	
 	public function updateAction()
 	{
 		

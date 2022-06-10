@@ -36,6 +36,7 @@ class User extends \Core\Model
         };
     }
 
+
     /**
      * Save the user model with the current property values
      *
@@ -72,14 +73,14 @@ class User extends \Core\Model
 			
 			
 
-           // return $stmt->execute();
+           
              $result=$stmt->execute();
 			 $id = $db->lastInsertId();
+			
 			 User::save_categorys('incomes_category_default',$id);
 			 User::save_categorys('expenses_category_default',$id);
 			 User::save_categorys('payment_methods_default',$id);
-			 //var_dump($id); 
-			// var_dump(User::str_replace_test('incomes_category_default',$id)); 
+
 			 
 			 return $result;
 			
@@ -547,4 +548,20 @@ class User extends \Core\Model
 
         return false;
     }
+	public  function AddExpenseCategory($data)
+	{
+		 $sql = 'INSERT INTO expenses_category_assigned_to_users ( user_id, name)
+                VALUES (:user_id, :name)';
+
+        $db = static::getDB();
+        $stmt = $db->prepare($sql);
+
+        
+        $stmt->bindValue(':user_id', $this->id, PDO::PARAM_INT);
+        $stmt->bindValue(':name',$data['expense-category'], PDO::PARAM_STR);
+
+        return $stmt->execute();
+		
+		
+	}
 }

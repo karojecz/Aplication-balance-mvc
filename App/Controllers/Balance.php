@@ -5,6 +5,7 @@ namespace App\Controllers;
 use \Core\View;
 use \App\Auth;
 use \App\Flash;
+use \App\Models\User;
 use \App\Models\BalanceModel;
 use \App\Models\expenseModel;
 use \App\Models\incomeModel;
@@ -52,6 +53,7 @@ class Balance extends Authenticated
 
 	public function thisMonthAction()
 	{
+		
 		balance::render_data(balance::this_month(), 'This month');
 		//var_dump(BalanceModel::findIncomeSums('2020-01-01','2022-12-12'));
 
@@ -91,6 +93,7 @@ class Balance extends Authenticated
 	
 	public function incomeAction()
     {
+		
         View::renderTemplate('Balance/Income.html',[
 			'categorys'=>BalanceModel::getCategorys('incomes_category_assigned_to_users'),
 			'time'=>date("Y-m-d"),
