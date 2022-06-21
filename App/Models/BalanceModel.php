@@ -181,6 +181,28 @@ class BalanceModel extends \Core\Model
 			return $result;
 			
 	}
+	public static function check_if_category_exist($table_name, $category_name)
+	{
+		
+		
+		$categorys=BalanceModel::getCategorys($table_name);
+		
+		foreach($categorys as $item )
+		{
+			 foreach( $item  as $key => $value)
+			 {
+			  if($value==$category_name)
+			  {
+				  return false;
+			  }
+				 
+			 }
+    
+		}
+		return true;
+		
+		
+	}
 
 	
 

@@ -558,7 +558,7 @@ class User extends \Core\Model
 
         
         $stmt->bindValue(':user_id', $this->id, PDO::PARAM_INT);
-        $stmt->bindValue(':name',$data['expense-category'], PDO::PARAM_STR);
+        $stmt->bindValue(':name',$data['category'], PDO::PARAM_STR);
 
         return $stmt->execute();
 		
@@ -574,7 +574,7 @@ class User extends \Core\Model
 
         
         $stmt->bindValue(':user_id', $this->id, PDO::PARAM_INT);
-        $stmt->bindValue(':name',$data['income-category'], PDO::PARAM_STR);
+        $stmt->bindValue(':name',$data['category'], PDO::PARAM_STR);
 
         return $stmt->execute();
 		
@@ -590,7 +590,7 @@ class User extends \Core\Model
 
         
         $stmt->bindValue(':user_id', $this->id, PDO::PARAM_INT);
-        $stmt->bindValue(':name',$data['payment-category'], PDO::PARAM_STR);
+        $stmt->bindValue(':name',$data['category'], PDO::PARAM_STR);
 
         return $stmt->execute();
 		
