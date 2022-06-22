@@ -92,6 +92,30 @@ class Profile extends Authenticated
 		}
 			
 	}
+	public function deleteIncomeCategorysAction()
+	{
+		$items=BalanceModel::getCategorys('incomes_category_assigned_to_users');
+		if(count($items)>1)
+		{
+		$data=$_POST['category'];
+		
+		BalanceModel::delete_category('incomes_category_assigned_to_users',$data);
+		
+		Flash::addMessage('Category deleted');
+		$this->redirect('/profile/show');
+		}else{
+			Flash::addMessage('Cant delete last item ',Flash::WARNING);
+			$this->redirect('/profile/DeleteIncome');
+		}
+		
+	}
+	public function DeleteIncomeAction()
+	{
+		View::renderTemplate('Profile/DeleteIncome.html',[
+		'user'=>$this->user,
+		'categorys'=>BalanceModel::getCategorys('incomes_category_assigned_to_users')
+		]);
+	}
 	public function PaymentCategoryAction()
 	{
 		View::renderTemplate('Profile/PaymentCategory.html',[
