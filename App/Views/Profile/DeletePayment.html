@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block footer %}
+    <script src="/js/hideShowPassword.min.js"></script>
+    <script src="/js/app.js"></script>
+
+
+
+{% endblock %}
+
+{% block body %}
+
+    <h1>Delete payment category</h1>
+
+    {% if user.errors is not empty %}
+        <p>Errors:</p>
+        <ul>
+            {% for error in user.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="post" id="formIncomeCategory" action="/profile/deletePaymentCategorys">
+
+
+       
+
+        
+		
+		
+		{% for payment_method in payment_methods %}
+				
+				<div class="form-check">
+				
+				<label class="form-check-label"><input type="radio" class="form-check-input" id="ExpensePyment" name="category" value="{{ payment_method.name }}" checked>{{ payment_method.name }}</label>
+				</div>
+
+				
+			{% endfor %}
+			
+			<button type="submit" class="bnt bnt-default">Delete</button>
+        <a href="/profile/show">Cancel</a>
+
+    </form>
+
+{% endblock %}

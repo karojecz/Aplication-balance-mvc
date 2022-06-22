@@ -203,6 +203,20 @@ class BalanceModel extends \Core\Model
 		
 		
 	}
+	public static function delete_category($table_name, $data)
+	{
+	 $sql = 'DELETE FROM '.$table_name.' WHERE user_id=:user_id AND name=:name';
+
+        $db = static::getDB();
+        $stmt = $db->prepare($sql);
+
+        
+        $stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+        $stmt->bindValue(':name',$data, PDO::PARAM_STR);
+
+        return $stmt->execute();
+		
+	}
 
 	
 
