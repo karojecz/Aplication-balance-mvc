@@ -58,6 +58,30 @@ class Profile extends Authenticated
 			$this->redirect('/profile/ExpenseCategory');
 		}
 	}
+	public function deleteExpensesCategorysAction()
+	{
+		$items=BalanceModel::getCategorys('expenses_category_assigned_to_users');
+		if(count($items)>1)
+		{
+		$data=$_POST['category'];
+		
+		BalanceModel::delete_category('expenses_category_assigned_to_users',$data);
+		
+		Flash::addMessage('Category deleted');
+		$this->redirect('/profile/show');
+		}else{
+			Flash::addMessage('Cant delete last item ',Flash::WARNING);
+			$this->redirect('/profile/DeleteExpense');
+		}
+		
+	}
+	public function DeleteExpenseAction()
+	{
+		View::renderTemplate('Profile/DeleteExpense.html',[
+		'user'=>$this->user,
+		'categorys'=>BalanceModel::getCategorys('expenses_category_assigned_to_users')
+		]);
+	}
 	public function IncomeCategoryAction()
 	{
 		

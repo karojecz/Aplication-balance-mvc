@@ -58,7 +58,7 @@ class BalanceModel extends \Core\Model
 	{		
 	
 				$db = static::getDB();
-				$stmt = $db->prepare('SELECT expenses.amount AS amount, expenses.date_of_expense AS date, expenses.expense_comment AS comment, expenses_category_assigned_to_users.name AS category  FROM expenses,expenses_category_assigned_to_users  WHERE expenses.user_id=:user_id  AND expenses.expense_category_assigned_to_user_id=expenses_category_assigned_to_users.id AND  expenses.date_of_expense  BETWEEN :start_date AND :end_date ORDER BY expenses_category_assigned_to_users.name DESC ');
+				$stmt = $db->prepare('SELECT expenses.amount AS amount, expenses.date_of_expense AS date, expenses.expense_comment AS comment, expenses_category_assigned_to_users.name AS category  FROM expenses,expenses_category_assigned_to_users  WHERE   expenses.user_id=:user_id  AND expenses.expense_category_assigned_to_user_id=expenses_category_assigned_to_users.id AND  expenses.date_of_expense  BETWEEN :start_date AND :end_date ORDER BY expenses_category_assigned_to_users.name DESC ');
 				
 				
 				$stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
@@ -84,7 +84,7 @@ class BalanceModel extends \Core\Model
 				$db = static::getDB();
 				
 			
-				$stmt = $db->prepare('SELECT incomes_category_assigned_to_users.name AS name, SUM(incomes.amount) AS sum FROM incomes_category_assigned_to_users,incomes WHERE incomes.user_id=:user_id AND incomes.income_category_assigned_to_user_id=incomes_category_assigned_to_users.id AND incomes.date_of_income  BETWEEN :start_date AND :end_date GROUP BY incomes_category_assigned_to_users.name ORDER BY sum DESC ');
+				$stmt = $db->prepare('SELECT incomes_category_assigned_to_users.name AS name, SUM(incomes.amount) AS sum FROM incomes_category_assigned_to_users,incomes WHERE   incomes.user_id=:user_id AND incomes.income_category_assigned_to_user_id=incomes_category_assigned_to_users.id AND incomes.date_of_income  BETWEEN :start_date AND :end_date GROUP BY incomes_category_assigned_to_users.name ORDER BY sum DESC ');
 				
 				
 				$stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
@@ -164,7 +164,7 @@ class BalanceModel extends \Core\Model
 	
 	public static function getCategorys($table_name)
 	{
-			$sql = 'SELECT id, name FROM '.$table_name.' WHERE user_id=:user_id';
+			$sql = 'SELECT id, name FROM '.$table_name.' WHERE user_id=:user_id AND active=1';
 			
 			$db = static::getDB();
 			
@@ -205,7 +205,7 @@ class BalanceModel extends \Core\Model
 	}
 	public static function delete_category($table_name, $data)
 	{
-	 $sql = 'DELETE FROM '.$table_name.' WHERE user_id=:user_id AND name=:name';
+	 $sql = 'UPDATE '.$table_name.' SET active=0 WHERE user_id=:user_id AND name=:name';
 
         $db = static::getDB();
         $stmt = $db->prepare($sql);
