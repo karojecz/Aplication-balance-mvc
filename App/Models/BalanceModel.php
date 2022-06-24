@@ -218,7 +218,22 @@ class BalanceModel extends \Core\Model
 		
 	}
 
-	
+	public static function setNewName($table_name, $oldName,$newName)
+	{
+	 $sql = 'UPDATE '.$table_name.' SET name=:newName WHERE user_id=:user_id AND name=:oldName';
+
+        $db = static::getDB();
+        $stmt = $db->prepare($sql);
+
+        
+        $stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+        $stmt->bindValue(':oldName',$oldName, PDO::PARAM_STR);
+        $stmt->bindValue(':newName',$newName, PDO::PARAM_STR);
+
+        return $stmt->execute();
+		
+	}
+
 
 	public static function  get_user_category_id($table_name, $category_name)
 	{

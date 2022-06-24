@@ -82,6 +82,31 @@ class Profile extends Authenticated
 		'categorys'=>BalanceModel::getCategorys('expenses_category_assigned_to_users')
 		]);
 	}
+	public function editExpenseAction()
+	{
+
+		View::renderTemplate('Profile/EditExpense.html',[
+		'user'=>$this->user,
+		'categorys'=>BalanceModel::getCategorys('expenses_category_assigned_to_users')
+		]);
+
+	}
+	public function editExpensesCategorysAction()
+	{
+		$_SESSION['name_to_edit']=$_POST['category'];
+		View::renderTemplate('Profile/testExpense.html');
+		
+		
+		
+	}
+	public function saveEditExpenseCategorysAction()
+	{
+		BalanceModel::setNewName('expenses_category_assigned_to_users',$_SESSION['name_to_edit'],$_POST['category']);
+		$_SESSION['CATEGORY_TO_EDIT']="";
+		Flash::addMessage('Name changed');
+		$this->redirect('/profile/show');
+	}
+	
 	public function IncomeCategoryAction()
 	{
 		
