@@ -548,7 +548,7 @@ class User extends \Core\Model
 
         return false;
     }
-	public  function AddExpenseCategory($data)
+	public  function AddExpenseCategorys($data)
 	{
 		 $sql = 'INSERT INTO expenses_category_assigned_to_users ( user_id, name)
                 VALUES (:user_id, :name)';
@@ -558,7 +558,7 @@ class User extends \Core\Model
 
         
         $stmt->bindValue(':user_id', $this->id, PDO::PARAM_INT);
-        $stmt->bindValue(':name',$data['category'], PDO::PARAM_STR);
+        $stmt->bindValue(':name',$data, PDO::PARAM_STR);
 
         return $stmt->execute();
 		

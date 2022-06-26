@@ -12,7 +12,7 @@
 
 {% block body %}
 
-    <h1>Add income category</h1>
+    <h1>Add expense category</h1>
 
     {% if user.errors is not empty %}
         <p>Errors:</p>
@@ -23,7 +23,7 @@
         </ul>
     {% endif %}
 
-    <form method="post" id="formIncomeCategory" action="/profile/AddIncomeCategory">
+    <form method="post" id="formIncomeCategory" action="/profile/AddExpenseCategory">
 
         <div class="form-group">
             <label for="inputName">Name</label>
