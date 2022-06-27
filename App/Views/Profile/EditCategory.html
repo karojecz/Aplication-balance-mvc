@@ -12,7 +12,7 @@
 
 {% block body %}
 
-    <h1>Delete payment category</h1>
+    <h1>Edit {{ title }} categorys</h1>
 
     {% if user.errors is not empty %}
         <p>Errors:</p>
@@ -23,15 +23,11 @@
         </ul>
     {% endif %}
 
-    <form method="post" id="formIncomeCategory" action="/profile/deleteExpensesCategorys">
+    <form method="post" id="formExpenseCategory" action="/profile/{{ action_title }}">
 
-
-       
-
-        
+ 
 		
-		
-				{% for category in categorys %}
+						{% for category in categorys %}
 					
 						<div class="form-check">
 						  
@@ -40,8 +36,11 @@
 					
 
 				{% endfor %}
-			
-			<button type="submit" class="bnt bnt-default">Delete</button>
+       
+
+        <button type="submit" name="new" class="bnt bnt-default">Add new category</button>
+        <button type="submit" name="delete" class="bnt bnt-default">Delete category</button>
+        <button type="submit" name="edit" class="bnt bnt-default">Edit</button>
         <a href="/profile/show">Cancel</a>
 
     </form>

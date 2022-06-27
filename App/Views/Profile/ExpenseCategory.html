@@ -12,7 +12,7 @@
 
 {% block body %}
 
-    <h1>Edit expense categorys</h1>
+    <h1>Edit {{ title }} categorys</h1>
 
     {% if user.errors is not empty %}
         <p>Errors:</p>
@@ -23,7 +23,7 @@
         </ul>
     {% endif %}
 
-    <form method="post" id="formExpenseCategory" action="/profile/EditExpenseCategory">
+    <form method="post" id="formExpenseCategory" action="/profile/{{ action_title }}">
 
  
 		

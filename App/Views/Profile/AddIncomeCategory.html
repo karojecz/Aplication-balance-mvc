@@ -6,13 +6,13 @@
     <script src="/js/hideShowPassword.min.js"></script>
     <script src="/js/app.js"></script>
 
-
+    
 
 {% endblock %}
 
 {% block body %}
 
-    <h1>Change category name </h1>
+    <h1>Add income category</h1>
 
     {% if user.errors is not empty %}
         <p>Errors:</p>
@@ -23,7 +23,7 @@
         </ul>
     {% endif %}
 
-    <form method="post" id="formExpenseCategory" action="/profile/saveEditExpenseCategorys">
+    <form method="post" id="formIncomeCategory" action="/profile/AddIncomeCategory">
 
         <div class="form-group">
             <label for="inputName">Name</label>
