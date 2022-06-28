@@ -102,7 +102,7 @@ class Profile extends Authenticated
 		
 		if($this->user->AddExpenseCategorys($data)){
 			Flash::addMessage('Changes saved');
-			$this->redirect('/profile/show');
+			$this->redirect('/profile/ExpenseCategory');
 		}else{
 			
 			View::renderTemplate('Profile/edit.html',[
@@ -156,7 +156,7 @@ class Profile extends Authenticated
 		if($this->user->AddIncomeCategory($_POST)){
 			
 			Flash::addMessage('Changes saved');
-			$this->redirect('/profile/show');
+			$this->redirect('/profile/IncomeCategory');
 		
 		}else{
 			
