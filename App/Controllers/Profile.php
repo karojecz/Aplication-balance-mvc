@@ -199,11 +199,29 @@ class Profile extends Authenticated
 			$this->redirect('/profile/IncomeCategory');
 		}
 	}
-
+	public function editPaymentCategoryAction()
+	{
+		Profile::editCategory('Payment');
+	}
+	public function saveEditPaymentCategorysAction ()
+	{
+		if(BalanceModel::check_if_category_exist('payment_methods_assigned_to_users',$_POST['category'])){
+		BalanceModel::setNewName('payment_methods_assigned_to_users',$_SESSION['name_to_edit'],$_POST['category']);
+		$_SESSION['CATEGORY_TO_EDIT']="";
+		Flash::addMessage('Name changed');
+		$this->redirect('/profile/PaymentCategory');
+		}	else{
+			Flash::addMessage('this category alerady exist', Flash::WARNING);
+			$this->redirect('/profile/PaymentCategory');
+		}
+	}
 	public function PaymentCategoryAction()
 	{
-		View::renderTemplate('Profile/PaymentCategory.html',[
-		'user'=>$this->user
+		View::renderTemplate('Profile/EditCategory.html',[
+		'user'=>$this->user,
+		'categorys'=>BalanceModel::getCategorys('payment_methods_assigned_to_users'),
+		'action_title'=>'EditPaymentCategory',
+		'title'=>'Payment'
 		]);
 	}
 	public function AddPaymentCategoryAction()
@@ -214,7 +232,7 @@ class Profile extends Authenticated
 		if(BalanceModel::check_if_category_exist('payment_methods_assigned_to_users',$new_category)){
 		if($this->user->AddPaymentCategory($_POST)){
 			Flash::addMessage('Changes saved');
-			$this->redirect('/profile/show');
+			$this->redirect('/profile/PaymentCategory');
 		}else{
 			
 			View::renderTemplate('Profile/edit.html',[
@@ -223,7 +241,7 @@ class Profile extends Authenticated
 			}
 	}else{
 		Flash::addMessage('this category alerady exist', Flash::WARNING);
-			$this->redirect('/profile/IncomeCategory');
+			$this->redirect('/profile/PaymentCategory');
 	}
 	}
 	public function deletePaymentCategorysAction()
@@ -239,20 +257,14 @@ class Profile extends Authenticated
 		BalanceModel::delete_category('payment_methods_assigned_to_users',$data);
 		
 		Flash::addMessage('Category deleted');
-		$this->redirect('/profile/show');
+		$this->redirect('/profile/PaymentCategory');
 		}else{
 			Flash::addMessage('Cant delete last item ',Flash::WARNING);
 			$this->redirect('/profile/DeletePayment');
 		}
 		
 	}
-	public function DeletePaymentAction()
-	{
-		View::renderTemplate('Profile/DeletePayment.html',[
-		'user'=>$this->user,
-		'payment_methods'=>BalanceModel::getCategorys('payment_methods_assigned_to_users')
-		]);
-	}
+
 	
 	
 	public function updateAction()
