@@ -30,7 +30,7 @@ class Profile extends Authenticated
 		]);
 	}
 	 
-	public function editCategory($name) 
+	public function editCategory($name, $tableName) 
 	{
 	if (isset($_POST['new'])) {
 	
@@ -52,7 +52,7 @@ class Profile extends Authenticated
 	} else if(isset($_POST['delete'])){
 		if(isset($_POST['category'])){
 			
-			Profile::deleteCategorys($name);
+			Profile::deleteCategorys($tableName);
 			Flash::addMessage('Item removed');
 			$this->redirect('/profile/'.$name.'Category');
 			
@@ -65,12 +65,12 @@ class Profile extends Authenticated
 	}
 	public function deleteCategorys($name)
 	{
-		$items=BalanceModel::getCategorys(''.$name.'s_category_assigned_to_users');
+		$items=BalanceModel::getCategorys($name);
 		if(count($items)>1)
 		{
 		$data=$_POST['category'];
 		
-		BalanceModel::delete_category(''.$name.'s_category_assigned_to_users',$data);
+		BalanceModel::delete_category($name,$data);
 		
 
 		}else{
@@ -82,7 +82,7 @@ class Profile extends Authenticated
 	
 	public function editExpenseCategoryAction()
 	{
-		Profile::editCategory('Expense');
+		Profile::editCategory('Expense', 'expenses_category_assigned_to_users');
 	}
 
 	public function ExpenseCategoryAction()
@@ -144,7 +144,7 @@ class Profile extends Authenticated
 	}
 	public function editIncomesCategoryAction()
 	{
-		Profile::editCategory('Income');
+		Profile::editCategory('Income','incomes_category_assigned_to_users');
 	}
 	public function AddIncomeCategoryAction()
 	{
@@ -201,7 +201,7 @@ class Profile extends Authenticated
 	}
 	public function editPaymentCategoryAction()
 	{
-		Profile::editCategory('Payment');
+		Profile::editCategory('Payment', 'payment_methods_assigned_to_users');
 	}
 	public function saveEditPaymentCategorysAction ()
 	{
