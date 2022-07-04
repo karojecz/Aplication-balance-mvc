@@ -42,7 +42,9 @@ class Profile extends Authenticated
 		
 		if(isset($_POST['category'])){
 			$_SESSION['name_to_edit']=$_POST['category'];
-			View::renderTemplate('Profile/edit'.$name.'.html');
+			View::renderTemplate('Profile/edit'.$name.'.html',[
+			'edit_name'=>$_SESSION['name_to_edit']
+			]);
 			
 		}else{
 			Flash::addMessage('Selecet category first', Flash::WARNING);
@@ -124,7 +126,7 @@ class Profile extends Authenticated
 		BalanceModel::setNewName('expenses_category_assigned_to_users',$_SESSION['name_to_edit'],$_POST['category']);
 		$_SESSION['CATEGORY_TO_EDIT']="";
 		Flash::addMessage('Name changed');
-		$this->redirect('/profile/show');
+		$this->redirect('/profile/ExpenseCategory');
 		}	else{
 			Flash::addMessage('this category alerady exist', Flash::WARNING);
 			$this->redirect('/profile/ExpenseCategory');
@@ -193,7 +195,7 @@ class Profile extends Authenticated
 		BalanceModel::setNewName('incomes_category_assigned_to_users',$_SESSION['name_to_edit'],$_POST['category']);
 		$_SESSION['CATEGORY_TO_EDIT']="";
 		Flash::addMessage('Name changed');
-		$this->redirect('/profile/show');
+		$this->redirect('/profile/IncomeCategory');
 		}	else{
 			Flash::addMessage('this category alerady exist', Flash::WARNING);
 			$this->redirect('/profile/IncomeCategory');
