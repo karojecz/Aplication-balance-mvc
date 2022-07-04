@@ -255,10 +255,19 @@ class BalanceModel extends \Core\Model
 	}
 	public function validate()
 	{
+		
+		$date_pattern='/^(20[1-2][1-9])-(0[1-9]|1[0-2])-(0[1-9]|1\d|2\d|3[0-1])$/';
+		
 		$date_Y_m_d=explode("-",$this->date);
 		$year=$date_Y_m_d[0];
 		$month=$date_Y_m_d[1];
 		$day=$date_Y_m_d[2];
+		
+		$date=$this->date;
+		if(!preg_match($date_pattern, $date)){
+			$this->errors[] = 'Wrong format';
+		}
+		
 		
 		if($this->amount==""){
 		$this->errors[] = 'Amount is required';
