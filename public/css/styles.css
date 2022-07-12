@@ -1,6 +1,6 @@
-
 .body {
 	margin-top: 3em;
+	background-color:red;
 	
 }
 .dropbtn {
@@ -69,6 +69,51 @@
 .pass-icon{
 	position:relative;
 }
+.child {
+ display: flex;
+  justify-content: center;
+
+  /* Center horizontally*/
+  margin: 0 auto;
+  
+ 
+}
+.block-menu{
+	width:200px;
+	height:200px;
+	padding:1px;
+	margin:1px;
+	
+	display: flex;
+  justify-content: center;
+	margin: 0 auto;
+	
+}
+.menu-item{
+	width:200px;
+	height:auto;
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+	
+	
+	
+
+	
+}
+.link-menu-item{
+	text-decoration: none;
+	color:black;
+	opacity:80%;
+	
+	
+}
+.link-menu-item:hover{
+	opacity:100%;
+	color:black;
+	
+}
+
 
 		
          
