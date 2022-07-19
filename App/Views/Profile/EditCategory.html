@@ -12,6 +12,51 @@
 
 {% block body %}
 
+
+  <!-- Modal -->
+<div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        										<div class="container-fluid">
+											<div class="row">
+												<form method="post" id="formExpenseCategory" action="/profile/saveEditExpenseCategorys">
+
+													<div class="form-group">
+														<label for="inputName">Name</label>
+														<input id="inputName" name="category" value="{{ edit_name }}"  required class="form-control" />
+													</div>
+												   
+
+													<button type="submit" class="bnt bnt-default">Save</button>
+													<a href="/profile/show">Cancel</a>
+
+												</form>
+											</div>
+										</div>
+
+					
+					<div class="col-md-10 col-md-offset-1" style="position:absolute;"  >
+					<div id="date_alert_empty" class="alert alert-danger  collapse"  >
+					<strong>Warning !</strong> Date field is empty.
+					</div>
+					</div>
+					
+					<div class="col-md-10 col-md-offset-1" style="position:absolute;"  >
+					<div id="date_alert_format" class="alert alert-danger  collapse"  >
+					<strong>Warning !</strong> Date format is wrong.
+					</div>
+					</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
     <h1>Edit {{ title }} categorys</h1>
 
     {% if user.errors is not empty %}
@@ -40,7 +85,9 @@
 
         <button type="submit" name="new" class="bnt bnt-default">Add new category</button>
         <button type="submit" name="delete" class="bnt bnt-default">Delete category</button>
-        <button type="submit" name="edit" class="bnt bnt-default">Edit</button>
+        <button type="submit" name="edit"  class="bnt bnt-default">Edit</button>
+       
+		<button  name="edit" type="button"  class="btn btn-info"  data-bs-toggle="modal" data-bs-target="#editmodal">Custom</button>
         <a href="/profile/show">Cancel</a>
 
     </form>

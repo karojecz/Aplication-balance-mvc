@@ -1,13 +1,23 @@
-.body {
+body {
 	margin-top: 3em;
-	background-color:red;
+	 background-color: #454545;
 	
+	
+	
+}
+
+
+.container{
+	
+	
+ 
+	   
 }
 .dropbtn {
   background-color: #04AA6D;
   color: white;
   padding: 16px;
- 
+
   border: none;
 }
 
@@ -72,8 +82,8 @@
 .child {
  display: flex;
   justify-content: center;
-
-  /* Center horizontally*/
+	
+  
   margin: 0 auto;
   
  
@@ -114,8 +124,20 @@
 	
 }
 
+.menu-item-tile{
+	color:white;
+	
+}
 
-		
+  .footer {
+   position:fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: red;
+   color: white;
+   text-align: center;
+}	
          
 
 

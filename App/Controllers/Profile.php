@@ -122,6 +122,8 @@ class Profile extends Authenticated
 
 	public function saveEditExpenseCategorysAction()
 	{
+		if(isset($_POST['category'])){
+			$_SESSION['name_to_edit']=$_POST['category'];
 		if(BalanceModel::check_if_category_exist('expenses_category_assigned_to_users',$_POST['category'])){
 		BalanceModel::setNewName('expenses_category_assigned_to_users',$_SESSION['name_to_edit'],$_POST['category']);
 		$_SESSION['CATEGORY_TO_EDIT']="";
@@ -130,6 +132,11 @@ class Profile extends Authenticated
 		}	else{
 			Flash::addMessage('this category alerady exist', Flash::WARNING);
 			$this->redirect('/profile/ExpenseCategory');
+		}
+	}
+	else{
+			Flash::addMessage('Selecet category first', Flash::WARNING);
+			$this->redirect('/profile/'.$name.'Category');
 		}
 	}
 	
