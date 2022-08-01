@@ -4,22 +4,26 @@
 
 {% block body %}
 	<h1>Profile</h1>
-
-		<dl class="dl-horizontal">
-			<dt>Name</dt>
-			<dd>{{user.name}}</dd>
-			<dt>Email</dt>
-			<dd>{{user.email}}</dd>
-		</dl>
-		
-		<a href="/profile/edit">Edit</a>
-		<br>
-		
-		<a href="/profile/ExpenseCategory">Edit expense category</a>
-		<br>
-		<a href="/profile/IncomeCategory">Edit income categorys</a>
-		<br>
-		<a href="/profile/PaymentCategory">Edit payment categorys</a>
-		
+			<div class="row">
+				<dl class="dl-horizontal">
+					<dt>Name</dt>
+					<dd>{{user.name}}</dd>
+					<dt>Email</dt>
+					<dd>{{user.email}}</dd>
+				</dl>
+				
+				<a class="btn btn-primary" href="/profile/edit">Edit</a>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">
+					<a class="btn btn-primary" href="/profile/ExpenseCategory">Edit expense category</a>
+				</div>	
+				<div class="col-sm-4">
+					<a class="btn btn-primary" href="/profile/IncomeCategory">Edit income categorys</a>
+				</div>	
+				<div class="col-sm-4">	
+					<a class="btn btn-primary" href="/profile/PaymentCategory">Edit payment categorys</a>
+				</div>
+			</div>
 		
 {% endblock %}

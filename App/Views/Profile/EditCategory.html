@@ -5,6 +5,9 @@
 {% block footer %}
     <script src="/js/hideShowPassword.min.js"></script>
     <script src="/js/app.js"></script>
+	<script src="/js/modal_window.js"></script>
+	
+
 
 
 
@@ -12,6 +15,12 @@
 
 {% block body %}
 
+
+					<div id="edit_radio_alert" class="alert alert-danger  collapse"  >
+					<strong>Warning !</strong> You must select one of items.
+					</div>
+ 
+ 
 
   <!-- Modal -->
 <div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -24,33 +33,23 @@
       <div class="modal-body">
         										<div class="container-fluid">
 											<div class="row">
-												<form method="post" id="formExpenseCategory" action="/profile/saveEditExpenseCategorys">
+												<form method="post" id="formExpenseCategory2" action="/profile/saveEditExpenseCategorys">
 
 													<div class="form-group">
-														<label for="inputName">Name</label>
-														<input id="inputName" name="category" value="{{ edit_name }}"  required class="form-control" />
+														<label for="inputNameModal">Name</label>
+														<input id="inputNameModal" name="category"   required class="form-control" />
 													</div>
 												   
 
 													<button type="submit" class="bnt bnt-default">Save</button>
 													<a href="/profile/show">Cancel</a>
 
-												</form>
+												
 											</div>
 										</div>
 
 					
-					<div class="col-md-10 col-md-offset-1" style="position:absolute;"  >
-					<div id="date_alert_empty" class="alert alert-danger  collapse"  >
-					<strong>Warning !</strong> Date field is empty.
-					</div>
-					</div>
-					
-					<div class="col-md-10 col-md-offset-1" style="position:absolute;"  >
-					<div id="date_alert_format" class="alert alert-danger  collapse"  >
-					<strong>Warning !</strong> Date format is wrong.
-					</div>
-					</div>
+
       </div>
 
     </div>
@@ -68,7 +67,7 @@
         </ul>
     {% endif %}
 
-    <form method="post" id="formExpenseCategory" action="/profile/{{ action_title }}">
+    
 
  
 		
@@ -76,20 +75,33 @@
 					
 						<div class="form-check">
 						  
-						  <label class="form-check-label" ><input type="radio" class="form-check-input" id="radio1" name="category" value="{{ category.name }}" >{{ category.name }}</label>
+						  <label class="form-check-label" ><input type="radio" class="form-check-input" id="{{ category.name }}" name="old_category" value="{{ category.name }}" >{{ category.name }}</label>
 						</div>
+						
+						
 					
 
 				{% endfor %}
+				    <div>
+       
+    </div>
        
 
         <button type="submit" name="new" class="bnt bnt-default">Add new category</button>
         <button type="submit" name="delete" class="bnt bnt-default">Delete category</button>
         <button type="submit" name="edit"  class="bnt bnt-default">Edit</button>
-       
-		<button  name="edit" type="button"  class="btn btn-info"  data-bs-toggle="modal" data-bs-target="#editmodal">Custom</button>
+		
+		
+	
+		<button type="button" class="btn btn-info btn-lg" id="myBtn" >Edit</button>
+     </form>  
+	   
+
+		
         <a href="/profile/show">Cancel</a>
 
-    </form>
+    
+	
+
 
 {% endblock %}
