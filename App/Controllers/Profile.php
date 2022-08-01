@@ -38,19 +38,7 @@ class Profile extends Authenticated
 	
 		
 	
-	} else if (isset($_POST['edit'])) {
-		
-		if(isset($_POST['category'])){
-			$_SESSION['name_to_edit']=$_POST['category'];
-			View::renderTemplate('Profile/edit'.$name.'.html',[
-			'edit_name'=>$_SESSION['name_to_edit']
-			]);
-			
-		}else{
-			Flash::addMessage('Selecet category first', Flash::WARNING);
-			$this->redirect('/profile/'.$name.'Category');
-		}
-    
+	
 	} else if(isset($_POST['delete'])){
 		if(isset($_POST['category'])){
 			
@@ -236,6 +224,29 @@ class Profile extends Authenticated
 	}
 	public function saveEditPaymentCategorysAction ()
 	{
+				if(isset($_POST['category'])){
+			$name_to_edit=$_POST['category'];
+			$old_name=$_POST['old_category'];
+			
+		if(BalanceModel::check_if_category_exist('payment_methods_assigned_to_users',$_POST['category'])){
+			
+		BalanceModel::setNewName('payment_methods_assigned_to_users',$old_name,$name_to_edit);
+
+		
+		Flash::addMessage('Name changed');
+		$this->redirect('/profile/PaymentCategory');
+		
+		}	else{
+			Flash::addMessage('this category alerady exist', Flash::WARNING);
+			$this->redirect('/profile/PaymentCategory');
+		}
+	}
+	else{
+			Flash::addMessage('Selecet category first', Flash::WARNING);
+			$this->redirect('/profile/'.$name.'Category');
+		}
+		
+		/*
 		if(BalanceModel::check_if_category_exist('payment_methods_assigned_to_users',$_POST['category'])){
 		BalanceModel::setNewName('payment_methods_assigned_to_users',$_SESSION['name_to_edit'],$_POST['category']);
 		$_SESSION['CATEGORY_TO_EDIT']="";
@@ -245,14 +256,14 @@ class Profile extends Authenticated
 			Flash::addMessage('this category alerady exist', Flash::WARNING);
 			$this->redirect('/profile/PaymentCategory');
 		}
-		
+		*/
 	}
 	public function PaymentCategoryAction()
 	{
 		View::renderTemplate('Profile/EditCategory.html',[
 		'user'=>$this->user,
 		'categorys'=>BalanceModel::getCategorys('payment_methods_assigned_to_users'),
-		'action_title'=>'EditPaymentCategory',
+		'action_title'=>'saveEditPaymentCategorysAction',
 		'title'=>'Payment'
 		]);
 	}
