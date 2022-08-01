@@ -92,7 +92,7 @@ class Profile extends Authenticated
 		View::renderTemplate('Profile/EditCategory.html',[
 		'user'=>$this->user,
 		'categorys'=>BalanceModel::getCategorys('expenses_category_assigned_to_users'),
-		'action_title'=>'EditExpenseCategory',
+		'action_title'=>'saveEditExpenseCategorysAction',
 		'title'=>'Expense'
 		]);
 	}
@@ -131,7 +131,7 @@ class Profile extends Authenticated
 			
 		BalanceModel::setNewName('expenses_category_assigned_to_users',$old,$name_to_edit);
 
-		$_SESSION['CATEGORY_TO_EDIT']="";
+		
 		Flash::addMessage('Name changed');
 		$this->redirect('/profile/ExpenseCategory');
 		
@@ -154,7 +154,7 @@ class Profile extends Authenticated
 		View::renderTemplate('Profile/EditCategory.html',[
 		'user'=>$this->user,
 		'categorys'=>BalanceModel::getCategorys('incomes_category_assigned_to_users'),
-		'action_title'=>'editIncomesCategory',
+		'action_title'=>'saveEditIncomesCategorysAction',
 		'title'=>'Income'
 		]);
 		
@@ -206,15 +206,29 @@ class Profile extends Authenticated
 	}
 	public function saveEditIncomesCategorysAction ()
 	{
+		if(isset($_POST['category'])){
+			$name_to_edit=$_POST['category'];
+			$old_name=$_POST['old_category'];
+			
 		if(BalanceModel::check_if_category_exist('incomes_category_assigned_to_users',$_POST['category'])){
-		BalanceModel::setNewName('incomes_category_assigned_to_users',$_SESSION['name_to_edit'],$_POST['category']);
-		$_SESSION['CATEGORY_TO_EDIT']="";
+			
+		BalanceModel::setNewName('incomes_category_assigned_to_users',$old_name,$name_to_edit);
+
+		
 		Flash::addMessage('Name changed');
 		$this->redirect('/profile/IncomeCategory');
+		
 		}	else{
 			Flash::addMessage('this category alerady exist', Flash::WARNING);
 			$this->redirect('/profile/IncomeCategory');
 		}
+	}
+	else{
+			Flash::addMessage('Selecet category first', Flash::WARNING);
+			$this->redirect('/profile/'.$name.'Category');
+		}
+		
+
 	}
 	public function editPaymentCategoryAction()
 	{
@@ -231,6 +245,7 @@ class Profile extends Authenticated
 			Flash::addMessage('this category alerady exist', Flash::WARNING);
 			$this->redirect('/profile/PaymentCategory');
 		}
+		
 	}
 	public function PaymentCategoryAction()
 	{
