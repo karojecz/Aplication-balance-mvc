@@ -20,8 +20,8 @@
 								<div class="row">
 
 									
-									<table class="table table-bordered caption-top">
-									 <caption>incomes</caption>
+									<table class="table table-bordered table-dark caption-top">
+									 <caption style="color:white">incomes</caption>
 									  <tr>
 										<th>Amount</th>
 										<th>date</th>
@@ -30,7 +30,9 @@
 									  </tr>
 									  
 											  {% for sum in income_sums %}
-													<th>  {{ sum.name }} </th>
+												<tr>
+													<th colspan="3">  {{ sum.name }} </th>
+												</tr>
 													
 															{% for income in incomes %}
 															 
@@ -52,8 +54,8 @@
 													</tr>
 									</table>
 									
-									<table class="table table-bordered caption-top ">
-									 <caption>expenses</caption>
+									<table class="table table-bordered table-dark caption-top ">
+									 <caption style="color:white">expenses</caption>
 									  <tr>
 										<th>Amount</th>
 										<th>date</th>
@@ -62,7 +64,9 @@
 									  </tr>
 									  
 											  {% for sum in expense_sums %}
-													<th>  {{ sum.name }} </th>
+												<tr>
+													<th colspan="3">  {{ sum.name }} </th>
+												</tr>
 													
 															{% for expense in expenses %}
 															 

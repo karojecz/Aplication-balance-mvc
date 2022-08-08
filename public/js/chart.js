@@ -23,8 +23,10 @@ data.addColumn('number', 'Sum');
 
   // Optional; add a title and set the width and height of the chart
   var options = {
-	  'title':"Your expenses",
-	  'legend': 'top'   
+	  backgroundColor: 'transparent',
+	  legend: {position: 'top', textStyle: {color: 'white', fontSize: 15}},
+	  title:"Your expenses" ,titleTextStyle: {color: 'white', fontSize: 19,},
+	     
 	  };
 
   // Display the chart inside the <div> element with id="piechart"
