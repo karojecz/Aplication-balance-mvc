@@ -10,7 +10,9 @@ document.getElementById('myBtn').onclick = function() {
 			var myModal = new bootstrap.Modal(document.getElementById('editmodal'))
 			
 			myModal.show();
+			document.getElementById("inputNameModalHiden").value = radio.value;
 			document.getElementById("inputNameModal").value = radio.value;
+			
 			break;
         }
 		if(lastItem==radio){
