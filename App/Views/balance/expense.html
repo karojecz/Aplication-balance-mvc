@@ -7,7 +7,7 @@
 
 
 
-    <h1>Add expense</h1>
+    <div class="row"><h1>Add expense</h1></div>
 	
 	    {% if expense.errors is not empty %}
         <p>Errors:</p>
@@ -25,13 +25,14 @@
 
 
 
-		Categorys:
-		<form action="/balance/create" method="post" id="form_item">
-		<div class="row p-2 bg-light border">
 		
 		
+		<div class="row ">
+		<div class=" p-2 bg-dark">
+			<form action="/balance/create" method="post" id="form_item">
 		
-			
+		
+				<h6>Categorys:</h6>
 			{% for category in categorys %}
 					<div class="col-md-4 ">
 					<div class="form-check ">
@@ -49,8 +50,9 @@
 		
 		
 		</div>
+		</div>
 		<div class="row">
-			<div class="col-md-6 ">
+			<div class="col-md-4 ">
 
 
 				<div class="form-group">
@@ -68,7 +70,8 @@
 								
 								
 																	
-											 <p>Date: <input type="text" value={{ time }} id="date" name="date"></p>
+											  <input class="form-control"  type="text" value={{ time }} id="date" name="date"/>
+											  
 
 
 																		
@@ -76,40 +79,53 @@
 				</div>
 				
 			</div>
-			<div class="col-md-6 ">	
+			<div class=" col-md-8">	
+			<div class="p-2 ">
+			
+			
+									
 			<div class="p-2">
 						<label for="Textarea" class="form-label">Comment:</label>
 						<textarea  class="form-control" id="Textarea" rows="5" cols="50" name="expense_comment" >
 						</textarea>
 			</div>		
-			</div>		
-		</div>
-		<div class="row">				
-						
-						
+			
 
-				
-			<div class=" col-md-6">	
-			<div class="p-2 ">
-			Payment methods:
-			{% for payment_method in payment_methods %}
-				
-				<div class="form-check">
-				
-				<label class="form-check-label"><input type="radio" class="form-check-input" id="ExpensePyment" name="payment_method" value="{{ payment_method.name }}" checked>{{ payment_method.name }}</label>
+			</div>	
+			</div>	
+	
+		</div>
+		<div class="row">	
+			
+				<div class="p-2  bg-dark">
+
+					<h6>Payment methods:</h6>
+					{% for payment_method in payment_methods %}
+						
+						<div class="form-check">
+						
+						<label class="form-check-label"><input type="radio" class="form-check-input" id="ExpensePyment" name="payment_method" value="{{ payment_method.name }}" checked>{{ payment_method.name }}</label>
+						</div>
+
+						
+					{% endfor %}
+			
 				</div>
-
-				
-			{% endfor %}
-			</div>	
-			</div>	
-			<div class="col-md-6 ">	
-			<div class="p-2 ">
-			<button  class="btn btn-primary" type='submit'>Add expense</button>
-			</div>
-			</div>
+			
 		</div>
-		</form>
+						
+		
+
+		<div class="row">		
+
+			
+			<div class="p-2 ">
+			<button  class="btn btn-secondary" type='submit'>Add expense</button>
+			</div>
+			
+			</form>
+		</div>
+		
 	
 	
 
