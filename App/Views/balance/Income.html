@@ -19,7 +19,7 @@
        
 
 	<form action="/balance/createIncome" method="post">
-		<div class="row  p-2 bg-light border">
+		<div class="row  p-2 bg-dark ">
 				{% for category in categorys %}
 					<div class="col-md-4 ">
 						<div class="form-check">
@@ -43,7 +43,7 @@
 						<div class="form group">
 						<div class="p-2">
 						<label for="date" >date of income:</label>
-						 <input type="text" value={{ time }} id="date" name="date"></p>
+						 <input class="form-control" type="text" value={{ time }} id="date" name="date"></p>
 						</div>
 						</div>
 			</div>
@@ -57,7 +57,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-8">
-						<button class="btn btn-primary"type='submit'>Add income</button>
+						<button class="btn btn-secondary"type='submit'>Add income</button>
 			</div>
 		</div>
 						
