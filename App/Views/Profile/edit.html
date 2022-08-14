@@ -66,7 +66,7 @@
             {% endfor %}
         </ul>
     {% endif %}
-
+	<div class="row">
     <form method="post" id="formProfile" action="/profile/update">
 
         <div class="form-group">
@@ -83,9 +83,12 @@
             <span id="helpBlock" class="help-block">Leave blank to keep current password</span>
         </div>
 
-        <button type="submit" class="bnt bnt-default">Save</button>
-        <a href="/profile/show">Cancel</a>
+        <button class="btn btn-secondary" type="submit" >Save</button>
+        <a class="btn btn-danger" href="/profile/show">Cancel</a>
+		
+		
 
     </form>
+	</div>
 
 {% endblock %}

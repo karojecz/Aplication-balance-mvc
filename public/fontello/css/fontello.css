@@ -73,4 +73,4 @@
 .icon-money-1:before { content: '\f0d6'; font-size:130px; color:#BBA319;} /* '' */
 .icon-plus-squared:before { content: '\f0fe'; } /* '' */
 .icon-attention-alt:before { content: '\f12a'; } /* '' */
-.icon-balance-scale:before { content: '\f24e'; font-size:130px; color:#BBA319;} /* '' */
+.icon-balance-scale:before { content: '\f24e'; font-size:130px; opacity: 0.3;} /* '' */

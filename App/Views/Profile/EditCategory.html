@@ -16,8 +16,8 @@
 {% block body %}
 
 
-					<div id="edit_radio_alert" class="alert alert-danger  collapse"  >
-					<strong>Warning !</strong> You must select one of items.
+					<div id="edit_radio_alert" class="alert alert-warning   collapse"  >
+					 Select category first.
 					</div>
  
  
@@ -72,7 +72,8 @@
     
 <form method="post" id="formExpenseCategory2" action="/profile/{{ action_title }}">
  
-		
+			<div class="row">
+				<div class="p-2">
 						{% for category in categorys %}
 					
 						<div class="form-check">
@@ -84,23 +85,30 @@
 					
 
 				{% endfor %}
-				    <div>
-       
-    </div>
-       
-
-        <button class="btn btn-secondary" type="submit" name="new" class="bnt bnt-default">Add new category</button>
-        <button class="btn btn-secondary" type="submit" name="delete" class="bnt bnt-default">Delete category</button>
-       
-		
-		
-	
-		<button type="button" class="btn btn-secondary" id="myBtn" >Edit</button>
+				</div>
+			</div>
+			
+				<div class="d-inline p-2">
+						<button class="btn btn-secondary" type="submit" name="new" >Add new category</button>
+				</div>	
+				<div class="d-inline p-2">
+						
+						<button class="btn btn-secondary" type="submit" name="delete" class="bnt bnt-default">Delete category</button>
+				</div>	
+				<div class="d-inline p-2">
+					
+						<button type="button" class="btn btn-secondary" id="myBtn" >Edit</button>
+						 
+				</div>
+				<div class="d-inline p-2">
+					<a class="btn btn-danger" href="/profile/show">Cancel</a>
+				</div>
+			
      </form>  
 	   
 
 		
-        <a href="/profile/show">Cancel</a>
+       
 
     
 	

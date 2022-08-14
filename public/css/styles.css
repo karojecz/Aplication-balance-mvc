@@ -89,6 +89,17 @@ body {
   
  
 }
+.child-index{
+ display: flex;
+ justify-content: center;
+	
+   padding:10px;
+   
+   
+  
+  
+ 
+}
 .block-menu{
 	width:200px;
 	height:200px;
@@ -139,6 +150,8 @@ body {
    color: white;
    text-align: center;
 }	
+
+
          
 
 
