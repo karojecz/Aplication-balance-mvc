@@ -46,9 +46,20 @@ document.getElementById('myBtnDelete').onclick = function() {
 			//document.getElementById("inputNameModal").value = radio.value;
 			
 			break;
-        }
+        
+		
 
     }
+	if(lastItem==radio){
+			
+			$('#edit_radio_alert').show();
+			
+			
+			  $("#edit_radio_alert").delay(2000).fadeOut("normal");
+			  
+			   
+		}
+}
 }
 
 $('#closemodal').click(function() {
