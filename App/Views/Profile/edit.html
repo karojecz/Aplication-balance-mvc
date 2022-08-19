@@ -5,6 +5,7 @@
 {% block footer %}
     <script src="/js/hideShowPassword.min.js"></script>
     <script src="/js/app.js"></script>
+    <script src="/js/eye_pass_icon.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -45,16 +46,16 @@
             /**
               * Show password toggle button
               */
-            $('#inputPassword').hideShowPassword({
-                show: false,
-                innerToggle: 'focus'
-            });
+
         });
     </script>
 
 {% endblock %}
 
 {% block body %}
+
+		        <div class="container mt-5">
+		<div class="col-md-5 mx-auto">
 
     <h1>Profile</h1>
 
@@ -66,22 +67,31 @@
             {% endfor %}
         </ul>
     {% endif %}
-	<div class="row">
+	
     <form method="post" id="formProfile" action="/profile/update">
 
-        <div class="form-group">
+        <div class="form group form-outline mb-4">
             <label for="inputName">Name</label>
             <input id="inputName" name="name" placeholder="Name" value="{{ user.name }}" required class="form-control" />
         </div>
-        <div class="form-group">
+        <div class="form group form-outline mb-4">
             <label for="inputEmail">Email address</label>
             <input id="inputEmail" name="email" placeholder="email address" value="{{ user.email }}" required type="email" class="form-control" />
         </div>
-        <div class="form-group">
-            <label for="inputPassword">Password</label>
-            <input type="password" id="inputPassword" name="password" placeholder="Password" aria-describedby="helpBlock" class="form-control" />
-            <span id="helpBlock" class="help-block">Leave blank to keep current password</span>
-        </div>
+
+		
+		<div class="form group form-outline mb-4 " >
+				<div class="pass-icon">
+					<label class="form-label" for="inputPassword">Password</label>
+					 
+					<input class="form-control" type="password" id="inputPassword" name="password" placeholder="Password"  />
+					
+					<div class="ic_eye">
+					<span class="bi bi-eye-slash" id="togglePassword"></span>
+					</div>
+				</div>	
+				
+		</div>
 
         <button class="btn btn-secondary" type="submit" >Save</button>
         <a class="btn btn-danger" href="/profile/show">Cancel</a>
@@ -89,6 +99,9 @@
 		
 
     </form>
+	
 	</div>
+	</div>
+	
 
 {% endblock %}

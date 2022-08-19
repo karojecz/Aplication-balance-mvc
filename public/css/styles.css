@@ -6,6 +6,11 @@ body {
 	
 	
 }
+a{
+	
+	text-decoration: none;
+	
+}
 
 
 .container{
@@ -75,6 +80,7 @@ body {
 	position:absolute;
 	top:40px;
 	margin-left:90%;
+	color:black;
 }
 
 .pass-icon{
@@ -150,6 +156,7 @@ body {
    color: white;
    text-align: center;
 }	
+
 
 
          

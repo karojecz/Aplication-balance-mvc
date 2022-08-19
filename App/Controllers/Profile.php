@@ -40,16 +40,13 @@ class Profile extends Authenticated
 	
 	
 	} else if(isset($_POST['delete'])){
-		if(isset($_POST['old_category'])){
+		
 			
 			Profile::deleteCategorys($tableName);
 			Flash::addMessage('Item removed');
 			$this->redirect('/profile/'.$name.'Category');
 			
-		}else{
-			Flash::addMessage('Selecet category first', Flash::WARNING);
-			$this->redirect('/profile/'.$name.'Category');
-		}
+
     
 	}else if(isset($_POST['edit'])){
 		Profile::saveEditCategorysAction($tableName);
@@ -62,7 +59,7 @@ class Profile extends Authenticated
 		$items=BalanceModel::getCategorys($name);
 		if(count($items)>1)
 		{
-		$data=$_POST['old_category'];
+		$data=$_POST['hiden_input_category_DELETE'];
 		
 		BalanceModel::delete_category($name,$data);
 		

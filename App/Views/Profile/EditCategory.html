@@ -27,7 +27,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit </h5>
+        <h5 class="modal-title" style="color:black" id="exampleModalLabel">Edit </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -42,9 +42,51 @@
 														
 													</div>
 												   
+														<div class="text-center p-2">
+															<button  name='edit' type="submit" class="btn btn-success">Save</button>
+															<button  name='edit2' id="Cancel-edit-button" type="button" class="btn btn-danger">Cancel</button>
+														</div>
 
-													<button  name='edit' type="submit" class="bnt bnt-default">Save</button>
-													<a href="/profile/show">Cancel</a>
+											</form>
+											</div>
+										</div>
+
+					
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+  <!-- Modal delete-->
+<div class="modal fade " id="delete_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog " style="color:black">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color:black" id="exampleModalLabel">Delete </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        										<div class="container-fluid ">
+											<div class="row">
+												<form method="post" id="deleteCATEGORYmODALfORM" action="/profile/{{ action_title }}">
+
+													<div class="form-group">
+															<input id="inputNameModalHiden_delete"  type="hidden" name="hiden_input_category_DELETE"    class="form-control" />		
+															<div class="text-center">
+																<p id="delete_query_text"></p>
+															</div>
+													</div>
+												   
+													<div class="text-center">
+														<button class="btn btn-success"  name='delete' type="submit" >Yes</button>
+														<button class="btn btn-danger" id="closemodal"  name='delete2' type="button" >No</button>
+													</div>
+													
+													
+													
 
 											</form>
 											</div>
@@ -72,37 +114,39 @@
     
 <form method="post" id="formExpenseCategory2" action="/profile/{{ action_title }}">
  
-			<div class="row">
-				<div class="p-2">
+			<div class="row p-2 bg-dark">
+				
 						{% for category in categorys %}
-					
-						<div class="form-check">
-						  
-						  <label class="form-check-label" ><input type="radio" class="form-check-input" id="{{ category.name }}" name="old_category" value="{{ category.name }}" >{{ category.name }}</label>
-						</div>
-						
+								<div class="col-md-4 ">
+									<div class="form-check">
+									  
+									  <label class="form-check-label" ><input type="radio" class="form-check-input" id="{{ category.name }}" name="old_category" value="{{ category.name }}" >{{ category.name }}</label>
+									</div>
+								</div>	
 						
 					
 
 				{% endfor %}
-				</div>
+			
 			</div>
+			<div class="p-2">
 			
 				<div class="d-inline p-2">
 						<button class="btn btn-secondary" type="submit" name="new" >Add new category</button>
 				</div>	
 				<div class="d-inline p-2">
 						
-						<button class="btn btn-secondary" type="submit" name="delete" class="bnt bnt-default">Delete category</button>
+						<button class="btn btn-secondary" id="myBtnDelete" type="button" name="delete" class="bnt bnt-default">Delete category</button>
 				</div>	
 				<div class="d-inline p-2">
 					
-						<button type="button" class="btn btn-secondary" id="myBtn" >Edit</button>
+						<button type="button" class="btn btn-secondary" id="myBtnEdit" >Edit</button>
 						 
 				</div>
 				<div class="d-inline p-2">
 					<a class="btn btn-danger" href="/profile/show">Cancel</a>
 				</div>
+			</div>
 			
      </form>  
 	   
