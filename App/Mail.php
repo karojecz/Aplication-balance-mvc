@@ -22,18 +22,7 @@ class Mail
 	
 	public static function send($to, $subject, $text, $html)
 	{
-	/*
-			$phpmailer = new PHPMailer();
-			$phpmailer->isSMTP();
-			$phpmailer->Host = 'smtp.mailtrap.io';
-			$phpmailer->SMTPAuth = true;
-			$phpmailer->Port = 2525;
-			$phpmailer->Username = '5e10b5c9e1478e';
-			$phpmailer->Password = '5718848a174325';
-	*/
-	
-	//require_once('vendor/phpmailer/phpmailer/PHPMailerAutoload.php'); # patch where is PHPMailer / ścieżka do PHPMailera
-//require_once('phpmailer/PHPMailerAutoload.php');
+
 
 
 
