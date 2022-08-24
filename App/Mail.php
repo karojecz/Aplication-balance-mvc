@@ -17,35 +17,7 @@ require '../vendor/autoload.php';
 class Mail
 {
 
-    /**
-     * Send a message
-     *
-     * @param string $to Recipient
-     * @param string $subject Subject
-     * @param string $text Text-only content of the message
-     * @param string $html HTML content of the message
-     *
-     * @return mixed
-     
-    public static function send($to, $subject, $text, $html)
-    {
-        //$mg = new Mailgun(Config::MAILGUN_API_KEY);
-		
-		$client = new \GuzzleHttp\Client([
-            'verify' => false,
-        ]);
-$adapter = new \Http\Adapter\Guzzle6\Client($client);
-$mg = new Mailgun(Config::MAILGUN_API_KEY, $adapter);
-		
-        $domain = Config::MAILGUN_DOMAIN;
 
-        $mg->sendMessage($domain, ['from'    => 'karol.jeczmionka@o2.pl',
-                                   'to'      => $to,
-                                   'subject' => $subject,
-                                   'text'    => $text,
-                                   'html'    => $html]);
-    }
-	*/
 	
 	
 	public static function send($to, $subject, $text, $html)
