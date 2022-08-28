@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Config;
+use \App\Flash;
 //use Mailgun\Mailgun;
 use PHPMailer\PHPMailer\PHPMailer;
 
@@ -24,7 +25,7 @@ class Mail
 	{
 
 
-
+							//$host=Config::MAIL_HOST;
 
 						$mail = new PHPMailer;
 						//$mail->CharSet = "UTF-8";
@@ -40,7 +41,7 @@ class Mail
 						$mail->IsSMTP();
 						$mail->SMTPAutoTLS = false;
 						//$mail->Host = 'smtp.mailtrap.io';
-						$mail->Host = 'budget.karol-jeczmionka.pl'; # Gmail SMTP host
+						$mail->Host = "budget.karol-jeczmionka.pl"; # Gmail SMTP host
 						$mail->Port = 587; # Gmail SMTP port
 						//$mail->Port = 2525; 
 						$mail->SMTPAuth = true; # Enable SMTP authentication / Autoryzacja SMTP
@@ -48,7 +49,7 @@ class Mail
 						
 						$mail->SMTPSecure = 'tls';
 						$mail->Username = "budget@karol-jeczmionka.pl"; # Gmail username (e-mail) / Nazwa użytkownika
-						$mail->Password = "..."; # Gmail password / Hasło użytkownika
+						$mail->Password = "lorak@123"; # Gmail password / Hasło użytkownika
 						
 						
 						$mail->From = 'budget@karol-jeczmionka.pl'; # REM: Gmail put Your e-mail here
@@ -64,10 +65,11 @@ class Mail
 
 						if(!$mail->Send()) {
 						echo 'Some error... ';
-						//echo 'Mailer Error: ' . $mail->ErrorInfo;
+						echo 'Mailer Error: ' . $mail->ErrorInfo;
 						exit;
 						}
-
-						echo 'Message has been sent (OK) / Wiadomość wysłana (OK)';		
+							
+							
+							
 	}		
 }

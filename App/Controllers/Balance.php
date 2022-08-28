@@ -121,9 +121,9 @@ class Balance extends Authenticated
 	public function createIncomeAction()
     {
 		
-		$expense = new IncomeModel($_POST);
+		$income = new IncomeModel($_POST);
 		
-		if($expense->save_income()){
+		if($income->save_income()){
 			Flash::addMessage('Item added');
 			$this->redirect('/Balance/Income');
 			
