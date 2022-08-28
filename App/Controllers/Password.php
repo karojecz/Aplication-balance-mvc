@@ -22,9 +22,7 @@ use \App\Flash;
 			
 			
 		
-			View::renderTemplate('Password/reset_requested.html',[
-			
-			]);
+			View::renderTemplate('Password/reset_requested.html');
 			
 			
 			
