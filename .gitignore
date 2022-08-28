@@ -1,3 +1,7 @@
 /logs
 /vendor
+<<<<<<< HEAD
 /App/Config.php
+=======
+/App/Config.php
+>>>>>>> e0368b788c67a34aa933296cec9a16a10f124c3a
