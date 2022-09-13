@@ -257,6 +257,7 @@ class BalanceModel extends \Core\Model
 	{
 		
 		$date_pattern='/^(20[1-2][1-9])-(0[1-9]|1[0-2])-(0[1-9]|1\d|2\d|3[0-1])$/';
+		$text_area_check=preg_match('/^[A-Za-z0-9 ,.]*$/',$this->comment);
 		
 		$date_Y_m_d=explode("-",$this->date);
 		$year=$date_Y_m_d[0];
@@ -288,6 +289,11 @@ class BalanceModel extends \Core\Model
 		if(!checkdate($month, $day, $year)){
 		$this->errors[] = 'Wrong date';	 
 		}
+		
+		if(!$text_area_check){
+			$this->errors[]='wrong text';
+		}
+		
 		
 
 	}

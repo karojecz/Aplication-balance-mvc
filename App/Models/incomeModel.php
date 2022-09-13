@@ -13,7 +13,7 @@ class IncomeModel extends BalanceModel
 		
 			$this->validate();
 			
-			if (empty($this->errors)){
+			if(empty($this->errors)){
 			 
             $sql = 'INSERT INTO incomes (user_id, income_category_assigned_to_user_id,  amount,date_of_income,income_comment)
                     VALUES (:user_id, :income_category_assigned_to_user_id,  :amount,:date_of_income,:income_comment)';
@@ -30,12 +30,14 @@ class IncomeModel extends BalanceModel
             
             $stmt->bindValue(':amount', $this->amount, PDO::PARAM_STR);
             $stmt->bindValue(':date_of_income', $this->date, PDO::PARAM_STR);
-            $stmt->bindValue(':income_comment', $this->income_comment, PDO::PARAM_STR);
+            $stmt->bindValue(':income_comment', $this->comment, PDO::PARAM_STR);
 			
 
             return $stmt->execute();
 			}
+
 			return false;
+			
 	}
 
 	

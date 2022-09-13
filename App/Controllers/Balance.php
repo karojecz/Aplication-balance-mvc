@@ -111,6 +111,7 @@ class Balance extends Authenticated
 			
 		}else{
 			     View::renderTemplate('/Balance/Expense.html', [
+				 'categorys'=>BalanceModel::getCategorys('expenses_category_assigned_to_users'),
                 'expense' => $expense,
 				'payment_methods'=>ExpenseModel::getCategorys('payment_methods_assigned_to_users'),
 				'time'=>date("Y-m-d"),
@@ -122,16 +123,27 @@ class Balance extends Authenticated
     {
 		
 		$income = new IncomeModel($_POST);
-		
+
 		if($income->save_income()){
 			Flash::addMessage('Item added');
 			$this->redirect('/Balance/Income');
 			
 		}else{
-			     View::renderTemplate('/Balance/Income.html', [
-                'income' => $income,			
-				'time'=>date("Y-m-d"),
-				]);
+			
+			
+
+			
+			View::renderTemplate('Balance/Income.html',[
+			'categorys'=>BalanceModel::getCategorys('incomes_category_assigned_to_users'),
+			'time'=>date("Y-m-d"),
+			'income'=>$income,
+			
+			
+		]);
+		
+	
+			
+	
 		}
 		
     }
