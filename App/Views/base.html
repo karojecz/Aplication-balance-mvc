@@ -34,6 +34,7 @@
 	<!--skrypt do input double calender do drop boxa w przegladaniu bilnansu -->
 	
 <script type="text/javascript" src="/js/input_date.js"></script>
+<script type="text/javascript" src="/js/alerts.js"></script>
 
 <!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>-->
 
@@ -173,7 +174,7 @@
 	{% endblock %}	
 	
     {% for message in flash_messages %}
-        <div class="alert alert-{{ message.type }}">
+        <div class="alert alert-{{ message.type }}" name="alerts_flash">
             {{ message.body }}
         </div>
     {% endfor %}

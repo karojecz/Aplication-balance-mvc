@@ -4,50 +4,26 @@
 
 {% block footer %}
 <script>
-/*
-$(document).ready(function () {
 
-$.validator.addMethod( "alphanumeric", function( value, element ) {
-	return this.optional( element ) || /^\w+$/i.test( value );
-}, "Letters, numbers, and underscores only please." );
-
-    $('#IncomeForm').validate({ // initialize the plugin
-        rules: {
-            income_comment: {
-               
-                alphanumeric: true,
-            }
-        },
-        submitHandler: function (form) { // for demo
-            alert('valid form submitted'); // for demo
-            return false; // for demo
-        }
-    });
-
-});
-document.getElementById('myBtnEdit').onclick = function() {
-
-	var comment=document.getElementById('Textarea2').value;
-	alert(comment);
-
-}
 
 
 document.getElementById("submit_button").addEventListener("click", function(event){
 
 var comment=document.getElementById('Textarea2').value;
 
-const regex=/d/;
+const regex=/^[A-Za-z0-9 ,.]*$/;
 
-if(/[>'"$&^]/.test(comment)){
-	alert(comment);
+if(!regex.test(comment)){
+
+	$('#text_area_alert').show();
+	
   event.preventDefault();
   
   }
   
 });
 
-*/
+
 </script>
 
 
@@ -67,13 +43,17 @@ if(/[>'"$&^]/.test(comment)){
             {% endfor %}
         
     {% endif %}
+	
+				<div id='text_area_alert' class="alert alert-danger collapse" role="alert" >
+			kik
+			</div>
 	<h1>Add income</h1>
 
     {% if current_user %}
 	
-			<div class="{{ alert_errors }}" role="alert">
-  {{ alert_info }}
-</div>
+
+
+
        
 
 	<form id="IncomeForm" action="/balance/createIncome" method="post">
