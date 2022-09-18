@@ -97,6 +97,7 @@ class Balance extends Authenticated
         View::renderTemplate('Balance/Income.html',[
 			'categorys'=>BalanceModel::getCategorys('incomes_category_assigned_to_users'),
 			'time'=>date("Y-m-d"),
+			'title'=>'income'
 		]);
 					
     }
