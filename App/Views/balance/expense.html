@@ -3,6 +3,12 @@
 
 {% block title %}Expense{% endblock %}
 
+{% block footer %}
+<script type="text/javascript" src="/js/alerts.js"></script>
+
+
+{% endblock %}
+
 {% block body %}
 
 
@@ -14,11 +20,15 @@
         
             {% for error in expense.errors %}
                
-				<div class="alert alert-warning " role="alert">{{ error }}</div>
+				<div class="alert alert-warning " name='alerts_flash'  role="alert">{{ error }}</div>
             {% endfor %}
         
     {% endif %}
-		<div class="row"><h1>Add expense</h1></div>
+					<div id='text_area_alert'  class="alert alert-danger collapse" role="alert" >
+			
+			</div>
+		<div id='text_area_alert'  class="alert alert-danger collapse" role="alert" ></div>
+		<h1>Add expense</h1>
 
 
     {% if current_user %}
@@ -90,7 +100,7 @@
 									
 			<div class="p-2">
 						<label for="Textarea" class="form-label">Comment:</label>
-						<textarea  class="form-control" id="Textarea" rows="5" cols="50" name="comment" ></textarea>
+						<textarea  class="form-control" id="Textarea"  rows="5" cols="50" name="comment" ></textarea>
 			</div>		
 			
 
@@ -123,7 +133,7 @@
 
 			
 			<div class="p-2 ">
-			<button  class="btn btn-secondary" type='submit'>Add expense</button>
+			<button  name='submit_button' class="btn btn-secondary" type='submit'>Add expense</button>
 			</div>
 			
 			</form>

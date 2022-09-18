@@ -3,28 +3,7 @@
 {% block title %}Income{% endblock %}
 
 {% block footer %}
-<script>
-
-
-
-document.getElementById("submit_button").addEventListener("click", function(event){
-
-var comment=document.getElementById('Textarea2').value;
-
-const regex=/^[A-Za-z0-9 ,.]*$/;
-
-if(!regex.test(comment)){
-
-	$('#text_area_alert').show();
-	
-  event.preventDefault();
-  
-  }
-  
-});
-
-
-</script>
+<script type="text/javascript" src="/js/alerts.js"></script>
 
 
 {% endblock %}
@@ -39,13 +18,13 @@ if(!regex.test(comment)){
         
             {% for error in income.errors %}
                
-				<div class="alert alert-warning " role="alert">{{ error }}</div>
+				<div class="alert alert-warning " name='alerts_flash'  role="alert">{{ error }}</div>
             {% endfor %}
         
     {% endif %}
 	
-				<div id='text_area_alert' class="alert alert-danger collapse" role="alert" >
-			kik
+				<div id='text_area_alert'  class="alert alert-danger collapse" role="alert" >
+			
 			</div>
 	<h1>Add income</h1>
 
@@ -88,13 +67,13 @@ if(!regex.test(comment)){
 			<div class="col-md-8">
 			<div class="p-2">
 						<label for="Textarea2" class="form-label">Comment:</label>
-						<textarea tclass="form-control"    id="Textarea2" rows="4" cols="50" name="comment" ></textarea>
+						<textarea class="form-control" id="Textarea2" rows="4" cols="50" name="comment" ></textarea>
 			</div>			
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-8">
-						<button class="btn btn-secondary" id="submit_button" type='submit'>Add income</button>
+						<button class="btn btn-secondary" name="submit_button" type='submit'>Add income</button>
 			</div>
 		</div>
 						
