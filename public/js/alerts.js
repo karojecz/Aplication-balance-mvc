@@ -14,7 +14,7 @@
 document.getElementById("submit_button").addEventListener("click", function(event){
 
 //var comment=document.getElementById('Textarea').value;
-var comment=document.getElementsByName("comment").value;
+var comment=document.getElementById("comment").value;
 
 const regex=/^[A-Za-z0-9 ,.]*$/;
 

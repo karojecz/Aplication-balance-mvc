@@ -3,7 +3,7 @@
 {% block title %}Income{% endblock %}
 
 {% block footer %}
-<script type="text/javascript" src="/js/alerts.js"></script>
+
 
 
 {% endblock %}
@@ -23,7 +23,7 @@
         
     {% endif %}
 	
-				<div id='text_area_alert'  class="alert alert-danger collapse" role="alert" >
+				<div id='text_area_alert2'  class="alert alert-danger collapse" role="alert" >
 			
 			</div>
 	<h1>Add income</h1>
@@ -67,13 +67,13 @@
 			<div class="col-md-8">
 			<div class="p-2">
 						<label for="Textarea2" class="form-label">Comment:</label>
-						<textarea class="form-control" id="Textarea2" rows="4" cols="50" name="comment" ></textarea>
+						<textarea class="form-control" id="Textarea2" rows="4" cols="50" name="comment2" ></textarea>
 			</div>			
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-8">
-						<button class="btn btn-secondary" name="submit_button" type='submit'>Add income</button>
+						<button class="btn btn-secondary"  value="{{ title }} "type='submit'>Add income</button>
 			</div>
 		</div>
 						

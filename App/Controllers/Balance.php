@@ -83,6 +83,8 @@ class Balance extends Authenticated
 			'categorys'=>BalanceModel::getCategorys("expenses_category_assigned_to_users"),
 			'payment_methods'=>BalanceModel::getCategorys('payment_methods_assigned_to_users'),
 			'time'=>date("Y-m-d"),
+			'title'=>'Add expense',
+			
 		]);
 		
 		
@@ -94,17 +96,28 @@ class Balance extends Authenticated
 	public function incomeAction()
     {
 		
-        View::renderTemplate('Balance/Income.html',[
+        View::renderTemplate('Balance/Expense.html',[
 			'categorys'=>BalanceModel::getCategorys('incomes_category_assigned_to_users'),
 			'time'=>date("Y-m-d"),
-			'title'=>'income'
+			'title'=>'Add income',
 		]);
 					
     }
 	public function createAction()
     {
-		
-		$expense = new ExpenseModel($_POST);
+		if($_POST['submit_button']=='Add income')
+		{
+			 balance::AddIncome($_POST);
+		}
+		else if($_POST['submit_button']=='Add expense')
+		{
+			balance::AddExpense($_POST);
+			//var_dump($this);
+			
+		}
+
+		/*
+				$expense = new ExpenseModel($_POST);
 		
 		if($expense->save_expense()){
 			Flash::addMessage('Item added');
@@ -118,11 +131,38 @@ class Balance extends Authenticated
 				'time'=>date("Y-m-d"),
 				]);
 		}
+		*/
+
 		
     }
-	public function createIncomeAction()
+	
+	public  function AddExpense($data)
+	{
+		//var_dump($this);
+		
+		$expense = new ExpenseModel($_POST);
+		
+		if($expense->save_expense()){
+			Flash::addMessage('Item added');
+			$this->redirect('/Balance/Expense');
+			
+		}else{
+			     View::renderTemplate('/Balance/Expense.html', [
+				 'categorys'=>BalanceModel::getCategorys('expenses_category_assigned_to_users'),
+                'expense' => $expense,
+				'payment_methods'=>ExpenseModel::getCategorys('payment_methods_assigned_to_users'),
+				'time'=>date("Y-m-d"),
+				'title'=>'Add expense',
+				]);
+		}
+		
+	}
+	
+	public function AddIncome($data)
     {
 		
+		//var_dump($_POST['submit_button']);
+	
 		$income = new IncomeModel($_POST);
 
 		if($income->save_income()){
@@ -134,10 +174,11 @@ class Balance extends Authenticated
 			
 
 			
-			View::renderTemplate('Balance/Income.html',[
+			View::renderTemplate('Balance/Expense.html',[
 			'categorys'=>BalanceModel::getCategorys('incomes_category_assigned_to_users'),
 			'time'=>date("Y-m-d"),
 			'income'=>$income,
+			'title'=>'Add income',
 			
 			
 		]);
