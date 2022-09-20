@@ -11,10 +11,10 @@
 				//this is js validation of text area in income and expense file
 				
 
-document.getElementById("submit_button").addEventListener("click", function(event){
+document.getElementById("submit_btn").addEventListener("click", function(event){
 
 //var comment=document.getElementById('Textarea').value;
-var comment=document.getElementById("comment").value;
+var comment=document.getElementById("Textarea").value;
 
 const regex=/^[A-Za-z0-9 ,.]*$/;
 
