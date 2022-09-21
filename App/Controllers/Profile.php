@@ -34,8 +34,8 @@ class Profile extends Authenticated
 	{
 	if (isset($_POST['new'])) {
 	
-			View::renderTemplate('Profile/Add'.$name.'Category.html');
-	
+			//View::renderTemplate('Profile/Add'.$name.'Category.html');
+			Profile::AddCategoryAction($tableName,$name);
 		
 	
 	
@@ -84,6 +84,26 @@ class Profile extends Authenticated
 		'action_title'=>'editExpenseCategoryAction',
 		'title'=>'Expense'
 		]);
+	}
+	public function AddCategoryAction($tableName, $name)
+	{
+		$data=$_POST['category'];
+		
+		if(BalanceModel::check_if_category_exist($tableName,$data)){
+		
+		if($this->user->AddExpenseCategorys($data)){
+			Flash::addMessage('Changes saved');
+			$this->redirect('/profile/'.$name.'Category');
+		}else{
+			
+			View::renderTemplate('Profile/edit.html',[
+				'user'=>$this->user
+			]);
+			}
+		}else{
+			Flash::addMessage('this category alerady exist', Flash::WARNING);
+			$this->redirect('/profile/'.$name.'Category');
+		}
 	}
 	public function AddExpenseCategoryAction()
 	{

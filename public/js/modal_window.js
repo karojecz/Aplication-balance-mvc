@@ -1,3 +1,14 @@
+//add new category
+
+document.getElementById('myBtnAdd').onclick = function() {
+
+			var myModal = new bootstrap.Modal(document.getElementById('addCategoryModal'))
+			myModal.show();
+
+}
+
+
+
 //edit
 document.getElementById('myBtnEdit').onclick = function() {
     var radios = document.getElementsByName('old_category');
