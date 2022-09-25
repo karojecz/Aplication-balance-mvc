@@ -548,6 +548,23 @@ class User extends \Core\Model
 
         return false;
     }
+	public  function AddCategorys($tableName, $data)
+	{
+		 $sql = 'INSERT INTO '.$tableName.' ( user_id, name)
+                VALUES (:user_id, :name)';
+
+        $db = static::getDB();
+        $stmt = $db->prepare($sql);
+
+        
+        $stmt->bindValue(':user_id', $this->id, PDO::PARAM_INT);
+        $stmt->bindValue(':name',$data, PDO::PARAM_STR);
+
+        return $stmt->execute();
+		
+		
+	}
+	
 	public  function AddExpenseCategorys($data)
 	{
 		 $sql = 'INSERT INTO expenses_category_assigned_to_users ( user_id, name)

@@ -2,8 +2,8 @@
 
 document.getElementById('myBtnAdd').onclick = function() {
 
-			var myModal = new bootstrap.Modal(document.getElementById('addCategoryModal'))
-			myModal.show();
+			var AddCategoryModal = new bootstrap.Modal(document.getElementById('addCategoryModal'))
+			AddCategoryModal.show();
 
 }
 

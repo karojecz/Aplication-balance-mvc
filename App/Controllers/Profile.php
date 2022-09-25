@@ -35,7 +35,7 @@ class Profile extends Authenticated
 	if (isset($_POST['new'])) {
 	
 			//View::renderTemplate('Profile/Add'.$name.'Category.html');
-			Profile::AddCategoryAction($tableName,$name);
+			Profile::AddNewCategory($tableName, $name);
 		
 	
 	
@@ -81,17 +81,17 @@ class Profile extends Authenticated
 		View::renderTemplate('Profile/EditCategory.html',[
 		'user'=>$this->user,
 		'categorys'=>BalanceModel::getCategorys('expenses_category_assigned_to_users'),
-		'action_title'=>'editExpenseCategoryAction',
+		'action_title'=>'editExpenseCategory',
 		'title'=>'Expense'
 		]);
 	}
-	public function AddCategoryAction($tableName, $name)
+	public function AddNewCategory($tableName, $name)
 	{
 		$data=$_POST['category'];
 		
 		if(BalanceModel::check_if_category_exist($tableName,$data)){
 		
-		if($this->user->AddExpenseCategorys($data)){
+		if($this->user->AddCategorys($tableName,$data)){
 			Flash::addMessage('Changes saved');
 			$this->redirect('/profile/'.$name.'Category');
 		}else{
@@ -189,7 +189,7 @@ class Profile extends Authenticated
 		View::renderTemplate('Profile/EditCategory.html',[
 		'user'=>$this->user,
 		'categorys'=>BalanceModel::getCategorys('incomes_category_assigned_to_users'),
-		'action_title'=>'editIncomesCategoryAction',
+		'action_title'=>'editIncomesCategory',
 		'title'=>'Income'
 		]);
 		
@@ -310,7 +310,7 @@ class Profile extends Authenticated
 		View::renderTemplate('Profile/EditCategory.html',[
 		'user'=>$this->user,
 		'categorys'=>BalanceModel::getCategorys('payment_methods_assigned_to_users'),
-		'action_title'=>'editPaymentCategoryAction',
+		'action_title'=>'editPaymentCategory',
 		'title'=>'Payment'
 		]);
 	}
