@@ -4,6 +4,37 @@ document.getElementById('myBtnAdd').onclick = function() {
 
 			var AddCategoryModal = new bootstrap.Modal(document.getElementById('addCategoryModal'))
 			AddCategoryModal.show();
+			
+							//this is js validation of text input add category in edit profile/add categorys
+				
+
+document.getElementById("AddCategoryButton").addEventListener("click", function(event){
+
+
+var comment=document.getElementById("inputNameModalAddCategory").value;
+
+
+const regex=/^[A-Za-z0-9 ,.]*$/;
+
+if(!regex.test(comment)){
+
+	
+	
+
+	document.getElementById("input_alert").innerHTML = "You can only use letters and numbers. Special characters are not allowed." ;
+	$('#input_alert').show();
+	
+	
+	setTimeout(function () {
+				$( "#input_alert" ).hide('fade');
+				},3000);
+	
+  event.preventDefault();
+  
+  }
+  
+});
+		
 
 }
 
