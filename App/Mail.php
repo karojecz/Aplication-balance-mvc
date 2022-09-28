@@ -25,10 +25,10 @@ class Mail
 	{
 
 
-							//$host=Config::MAIL_HOST;
+							
 
 						$mail = new PHPMailer;
-						//$mail->CharSet = "UTF-8";
+						
 						
 						$mail->SMTPOptions = [
 									'ssl' => [
@@ -40,12 +40,12 @@ class Mail
 
 						$mail->IsSMTP();
 						$mail->SMTPAutoTLS = false;
-						//$mail->Host = 'smtp.mailtrap.io';
+						
 						$mail->Host = "budget.karol-jeczmionka.pl"; # Gmail SMTP host
 						$mail->Port = 587; # Gmail SMTP port
-						//$mail->Port = 2525; 
+						
 						$mail->SMTPAuth = true; # Enable SMTP authentication / Autoryzacja SMTP
-						//$mail->SMTPDebug = 4;
+						
 						
 						$mail->SMTPSecure = 'tls';
 						$mail->Username = "budget@karol-jeczmionka.pl"; # Gmail username (e-mail) / Nazwa użytkownika
