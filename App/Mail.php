@@ -41,18 +41,18 @@ class Mail
 						$mail->IsSMTP();
 						$mail->SMTPAutoTLS = false;
 						
-						$mail->Host = "budget.karol-jeczmionka.pl"; # Gmail SMTP host
-						$mail->Port = 587; # Gmail SMTP port
+						$mail->Host = Config::MAIL_HOST; # Gmail SMTP host
+						$mail->Port =  Config::MAIL_PORT; # Gmail SMTP port
 						
 						$mail->SMTPAuth = true; # Enable SMTP authentication / Autoryzacja SMTP
 						
 						
 						$mail->SMTPSecure = 'tls';
-						$mail->Username = "budget@karol-jeczmionka.pl"; # Gmail username (e-mail) / Nazwa użytkownika
-						$mail->Password = "lorak@123"; # Gmail password / Hasło użytkownika
+						$mail->Username = Config::MAIL_USERNAME; # Gmail username (e-mail) / Nazwa użytkownika
+						$mail->Password = Config::MAIL_PASSWORD; # Gmail password / Hasło użytkownika
 						
 						
-						$mail->From = 'budget@karol-jeczmionka.pl'; # REM: Gmail put Your e-mail here
+						$mail->From = Config::MAIL_ADRESS; # REM: Gmail put Your e-mail here
 						//$mail->setFrom ('info@mailtrap.io', 'Mailtrap'); # REM: Gmail put Your e-mail here
 						$mail->FromName = 'karol'; # Sender name
 						$mail->AddAddress($to, 'Karol Jeczmionka'); # # Recipient (e-mail address + name) / Odbiorca (adres e-mail i nazwa)
