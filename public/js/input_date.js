@@ -1,7 +1,8 @@
   $( function() {
     $( ".inp_date" ).datepicker({
 		
-		dateFormat: "yy-mm-dd"
+		dateFormat: "yy-mm-dd",
+		 minDate : "2020-01-01",
 		
 	});
   } );
@@ -9,7 +10,8 @@
     $( function() {
     $( "#date" ).datepicker({
 	
-	dateFormat: "yy-mm-dd"
+	dateFormat: "yy-mm-dd",
+	 minDate : "2020-01-01",
 	});
   } );
   

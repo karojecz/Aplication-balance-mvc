@@ -95,24 +95,7 @@ class User extends \Core\Model
 	*
 	*
 	*/
-	/*
-	protected static function getCategorysNames($table_name)
-	{
-			$sql = 'SELECT name FROM '.$table_name.'';
-			
-			$db = static::getDB();
-			
-			$stmt = $db->prepare($sql);
-			
 
-            
-			 $stmt->setFetchMode(PDO::FETCH_ASSOC);
-
-			$stmt->execute();
-
-			return $stmt->fetchAll();
-	}
-	*/
 	/*ZAPISANE DOMYSLNYCH KATEGORI DO BAZY DANYCH
 	*
 	*
@@ -147,35 +130,7 @@ class User extends \Core\Model
 	}
 	
 
-	/*
-	protected static function saveCategorysNames($name_first_table, $name_second_table)
-	{
-		
-		$categorys=User::getCategorysNames($name_first_table);
-					
-				$sql = 'INSERT INTO '.$name_second_table.' (user_id, name)
-						VALUES (:user_id, :categorys)';
-						
-						
-				$db = static::getDB();
-				
-					foreach($categorys as $value=>$key)
-					{
-						$stmt = $db->prepare($sql);
-							
-						$stmt->bindvalue(':categorys', $key['name'], PDO::PARAM_STR);
-						$stmt->bindValue(':user_id','10' , PDO::PARAM_INT);
-						$stmt->execute();
-					}	
-	}
-	*/
-	
 
-    /*
-     * Validate current property values, adding valiation error messages to the errors array property
-     *
-     * @return void
-     */
     public function validate()
     {
         // Name
