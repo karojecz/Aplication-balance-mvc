@@ -50,15 +50,15 @@ function drawChart() {
 	function drawChart2() {
 
 
-	if (Array.isArray(myArr) && myArr.length){
+	if (Array.isArray(myArrIncomes) && myArrIncomes.length){
 						var data = new google.visualization.DataTable();
 
 						data.addColumn('string', 'Category name');
 						data.addColumn('number', 'Sum');
 
 	
-								for (var key in myArr) {
-							var value = myArr[key];
+								for (var key in myArrIncomes) {
+							var value = myArrIncomes[key];
 								var sum=parseFloat(value.sum);
 							data.addRow([value.name,sum]);
 						}
@@ -69,7 +69,7 @@ function drawChart() {
 						  var options = {
 							  backgroundColor: 'transparent',
 							  legend: {position: 'top', textStyle: {color: 'white', fontSize: 15}},
-							  title:"Your expenses" ,titleTextStyle: {color: 'white', fontSize: 19,},
+							  title:"Your income" ,titleTextStyle: {color: 'white', fontSize: 19,},
 
 								 
 							  };
