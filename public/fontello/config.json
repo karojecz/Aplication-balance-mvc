@@ -125,6 +125,36 @@
       "css": "money-2",
       "code": 59407,
       "src": "linecons"
+    },
+    {
+      "uid": "8b80d36d4ef43889db10bc1f0dc9a862",
+      "css": "user",
+      "code": 59408,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "3d8cc269fdad8a4cda55a20542a84e5c",
+      "css": "credit-card",
+      "code": 59409,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "c5cd6ea1981cecdd85c42d9d209bc3b8",
+      "css": "credit-card-1",
+      "code": 59410,
+      "src": "entypo"
+    },
+    {
+      "uid": "9f498adcae624d612adc3123d65abf04",
+      "css": "credit-card-2",
+      "code": 59411,
+      "src": "typicons"
+    },
+    {
+      "uid": "8c0ffa714cecbf5144e022d9c3df4a1f",
+      "css": "bank",
+      "code": 61852,
+      "src": "fontawesome"
     }
   ]
 }

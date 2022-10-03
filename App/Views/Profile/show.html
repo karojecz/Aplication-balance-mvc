@@ -3,28 +3,85 @@
 {% block title %}Profile{% endblock %}
 
 {% block body %}
-	<h1>Profile</h1>
-			<div class="row">
-				<dl class="dl-horizontal">
-					<dt>Name</dt>
-					<dd>{{user.name}}</dd>
-					<dt>Email</dt>
-					<dd>{{user.email}}</dd>
-					<a class="btn btn-secondary" href="/profile/edit">Edit profile</a>
-				</dl>
+	<h1>Settings</h1>
+
+			
+			
+			
+			
+			
+					
+		<div class="child">
 				
+					<div class="row">
+						<div class="col-sm-6 p-1">		
+							<a class="link-menu-item" href="/profile/ExpenseCategory" >
+							<div class="menu-item-tile">
+								<div class="menu-item">
+									<h5 >Expenses categories</h5>
+								</div>
+								
+								<div class="menu-item">
+									<i class="icon-money-2"></i>
+								</div>
+								</div>
+							</a>
+						</div>
+						<div class="col-sm-6 p-1">	
+							<a class="link-menu-item" href="/profile/IncomeCategory" >
+							<div class="menu-item-tile">
+								<div class="menu-item">
+									<h5 >Incomes categories</h5>
+								</div>
+								
+								<div class="menu-item">
+									<i class="icon-money"></i>
+								</div>
+							</div>
+							</a>
+						</div>
+					</div>
+					
+
+					
+			
+		</div>
+		
+			<div class="child">
 				
-			</div>
-			<div class="row">
-				<div class="col-sm-4">
-					<a class="btn btn-secondary" href="/profile/ExpenseCategory">Edit expense category</a>
-				</div>	
-				<div class="col-sm-4">
-					<a class="btn btn-secondary" href="/profile/IncomeCategory">Edit income categorys</a>
-				</div>	
-				<div class="col-sm-4">	
-					<a class="btn btn-secondary" href="/profile/PaymentCategory">Edit payment categorys</a>
-				</div>
+					<div class="row">
+						<div class="col-sm-6 p-1">		
+							 <a class="link-menu-item" href="/profile/PaymentCategory" >
+								<div class="menu-item-tile">
+									<div class="menu-item">
+										<h5 >Payment categories</h5>
+									</div>
+									
+									<div class="menu-item">
+										<i class="icon-credit-card-2"></i>
+									</div>
+								</div>
+							 </a>
+							</div>
+						
+						<div class="col-sm-6 p-1">	
+							 <a class="link-menu-item"  href="/profile/edit" >
+								<div class="menu-item-tile">
+										<div class="menu-item">
+											<h5 >Edit profile</h5>
+										</div>
+										
+										<div class="menu-item">
+											<i class="icon-user"></i>
+										</div>
+								</div>
+							</a>
+						</div>
+					</div>
+					
+
+					
+			
 			</div>
 		
 {% endblock %}

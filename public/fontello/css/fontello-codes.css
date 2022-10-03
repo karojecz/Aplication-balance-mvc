@@ -15,7 +15,12 @@
 .icon-dollar:before { content: '\e80d'; } /* '' */
 .icon-wallet:before { content: '\e80e'; } /* '' */
 .icon-money-2:before { content: '\e80f'; } /* '' */
+.icon-user:before { content: '\e810'; } /* '' */
+.icon-credit-card:before { content: '\e811'; } /* '' */
+.icon-credit-card-1:before { content: '\e812'; } /* '' */
+.icon-credit-card-2:before { content: '\e813'; } /* '' */
 .icon-money-1:before { content: '\f0d6'; } /* '' */
 .icon-plus-squared:before { content: '\f0fe'; } /* '' */
 .icon-attention-alt:before { content: '\f12a'; } /* '' */
+.icon-bank:before { content: '\f19c'; } /* '' */
 .icon-balance-scale:before { content: '\f24e'; } /* '' */
