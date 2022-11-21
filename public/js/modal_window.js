@@ -1,3 +1,6 @@
+let e;
+let x;
+
 //add new category
 
 document.getElementById('myBtnAdd').onclick = function() {
@@ -68,6 +71,61 @@ document.getElementById('myBtnEdit').onclick = function() {
 		}
     }
 }
+//set limit
+
+function testLIMIT(){
+	 e = document.getElementById("categoryslimit");
+		 x=e.options[e.selectedIndex].id;
+	console.log(x);
+	//console.log(f);
+	
+
+	
+}
+
+
+
+
+
+document.getElementById('myBtnLimit').onclick = function() {
+	var myModal = new bootstrap.Modal(document.getElementById('limit_modal'))
+	
+	document.getElementById("inputNameModalHidenLimit").value = e.value;
+	myModal.show();
+	/*
+    var radios = document.getElementsByName('old_category');
+	const lastItem = radios[radios.length - 1]
+    for (var radio of radios)
+    {
+		
+        if (radio.checked) {
+            //alert(radio.value);
+			var myModal = new bootstrap.Modal(document.getElementById('delete_modal'))
+			
+			myModal.show();
+			var value=radio.value;
+			document.getElementById("inputNameModalHiden_delete").value = radio.value;
+			document.getElementById("delete_query_text").innerHTML = "Are You sure to delete " +value+ " category?" ;
+			//document.getElementById("inputNameModal").value = radio.value;
+			
+			break;
+        
+		
+
+    }
+	if(lastItem==radio){
+			
+			$('#edit_radio_alert').show();
+			
+			
+			  $("#edit_radio_alert").delay(2000).fadeOut("normal");
+			  
+			   
+		}
+}
+*/
+}
+
 
 //delete
 

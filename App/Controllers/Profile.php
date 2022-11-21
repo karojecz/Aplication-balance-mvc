@@ -53,6 +53,9 @@ class Profile extends Authenticated
 		
 		
 	}
+	else if(isset($_POST['limit'])){
+		Profile::setLimitForCategory();
+	}
 	}
 	public function deleteCategorys($name)
 	{
@@ -68,6 +71,26 @@ class Profile extends Authenticated
 			Flash::addMessage('Cant delete last item ',Flash::WARNING);
 			$this->redirect('/profile/'.$name.'Category');
 		}
+		
+	}
+	public function setLimitForCategory()
+	{
+		$limit = $_POST['limit'];
+		$category = $_POST['category'];
+
+		
+		
+		if(BalanceModel::setLimitForCategory($limit,$category)){
+			Flash::addMessage('Changes saved');
+			$this->redirect('/profile/ExpenseCategory');
+			
+		}else{
+			
+			Flash::addMessage('error', Flash::WARNING);
+			$this->redirect('/profile/ExpenseCategory');
+			
+		}
+		
 		
 	}
 	
@@ -132,8 +155,10 @@ class Profile extends Authenticated
 		if(isset($_POST['category'])){
 			$name_to_edit=$_POST['category'];
 			$old=$_POST['hiden_input_category'];
+
+		if(!BalanceModel::check_if_category_exist($table_name,$_POST['category'])){
 			
-		if(BalanceModel::check_if_category_exist($table_name,$_POST['category'])){
+			
 			
 		BalanceModel::setNewName($table_name,$old,$name_to_edit);
 
@@ -153,6 +178,7 @@ class Profile extends Authenticated
 		
 		
 	}
+	
 
 
 	public function saveEditExpenseCategorysAction()

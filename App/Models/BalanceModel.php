@@ -164,7 +164,7 @@ class BalanceModel extends \Core\Model
 	
 	public static function getCategorys($table_name)
 	{
-			$sql = 'SELECT id, name FROM '.$table_name.' WHERE user_id=:user_id AND active=1';
+			$sql = 'SELECT * FROM '.$table_name.' WHERE user_id=:user_id AND active=1';
 			
 			$db = static::getDB();
 			
@@ -193,13 +193,13 @@ class BalanceModel extends \Core\Model
 			 {
 			  if($value==$category_name)
 			  {
-				  return false;
+				  return true;
 			  }
 				 
 			 }
     
 		}
-		return true;
+		return false;
 		
 		
 	}
@@ -229,6 +229,22 @@ class BalanceModel extends \Core\Model
         $stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
         $stmt->bindValue(':oldName',$oldName, PDO::PARAM_STR);
         $stmt->bindValue(':newName',$newName, PDO::PARAM_STR);
+
+        return $stmt->execute();
+		
+	}
+	
+	public static function setLimitForCategory($limit,$category)
+	{
+	 $sql = 'UPDATE expenses_category_assigned_to_users SET category_limit=:limit WHERE user_id=:user_id AND name=:category';
+
+        $db = static::getDB();
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':category',$category, PDO::PARAM_STR);
+       
 
         return $stmt->execute();
 		

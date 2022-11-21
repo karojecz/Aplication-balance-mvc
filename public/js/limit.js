@@ -1,4 +1,4 @@
-
+/*
 	function limitTEST(){
 		
 		console.log('ok');
@@ -9,3 +9,4 @@
 		.then((data)=>console.log(data))
 		
 	}
+	*/
