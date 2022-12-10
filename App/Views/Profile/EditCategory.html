@@ -123,7 +123,7 @@
 												<form method="post" id="limiy" action="/profile/{{ action_title }}">
 													<div class="form-group">
 
-														<input id="inputNameModalHidenLimit"  type="hidden" name="category"    class="form-control" />
+														<input id="inputNameModalHidenLimit"  type="hidden" name="categoryID"    class="form-control" />
 														<h6 class="modal-title" style="color:black" >set limit for category </h6>
 														
 														<input type="number" min='1' name="limit"/>
@@ -208,7 +208,7 @@
 <form method="post" id="formExpenseCategory2" action="/profile/{{ action_title }}">
  
 			<div class="row p-2 bg-dark">
-				<select  id="categoryslimit" onchange="testLIMIT()">
+				<select  id="categoryslimit" >
 				{% for category in categorys %}
 					<option value="{{ category.name }}" id='{{ category.id }}'>{{ category.name }}</option>
 				{% endfor %}	

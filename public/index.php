@@ -39,5 +39,7 @@ $router->add('password/reset/{token:[\da-f]+}',['controller'=>'Password','action
 $router->add('{controller}/{action}');
 $router->add('{controller}/{id:\d+}/{action}');
 $router->add('signup/activate/{token:[\da-f]+}', ['controller' => 'Signup', 'action' => 'activate']);
+$router->add('balance/checkLimit/{id:\d+}', ['controller' => 'balance', 'action' => 'checkLimit']);
+$router->add('balance/getAmount/{id:\d+}', ['controller' => 'balance', 'action' => 'getAmount']);
 
 $router->dispatch($_SERVER['QUERY_STRING']);

@@ -53,7 +53,7 @@ class Profile extends Authenticated
 		
 		
 	}
-	else if(isset($_POST['limit'])){
+	else if(isset($_POST['limitbtn'])){
 		Profile::setLimitForCategory();
 	}
 	}
@@ -76,10 +76,8 @@ class Profile extends Authenticated
 	public function setLimitForCategory()
 	{
 		$limit = $_POST['limit'];
-		$category = $_POST['category'];
+		$category = $_POST['categoryID'];
 
-		
-		
 		if(BalanceModel::setLimitForCategory($limit,$category)){
 			Flash::addMessage('Changes saved');
 			$this->redirect('/profile/ExpenseCategory');

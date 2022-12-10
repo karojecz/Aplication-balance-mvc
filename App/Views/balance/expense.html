@@ -9,6 +9,7 @@
 
 {% block footer %}
 <script type="text/javascript" src="/js/alerts.js"></script>
+<script type="text/javascript" src="/js/limit.js"></script>
 
 
 
@@ -30,9 +31,12 @@
             {% endfor %}
         
     {% endif %}
-					<div id='text_area_alert'  class="alert alert-danger collapse" role="alert" >
+					<div id='text_area_alert'  class="alert alert-danger collapse" role="alert" ></div>
+					<div id='limit_alert'  class="alert alert-danger collapse" role="alert" ></div>
 			
-			</div>
+			
+			
+			
 		
 		<h1> {{ title }} </h1>
 
@@ -49,6 +53,13 @@
 		<div class="row ">
 		<div class=" p-2 bg-dark">
 			<form action="/balance/create" method="post" id="form_item">
+			
+				<select  id="categoryslimit2" onchange="checkIfLimitExceeded()">
+				{% for category in categorys %}
+					<option value="{{ category.name }}" id='{{ category.id }}'>{{ category.name }}</option>
+				{% endfor %}	
+				
+				</select>
 		
 		
 				<h6>Categorys:</h6>
@@ -86,7 +97,7 @@
 				<div class="p-2">
 				<label for="date" >date of expense:</label>
 																
-				 <input class="form-control"   min="2020-01-01" max="{{ time }}" type="date" value={{ time }}  name="date"/>
+				 <input id="DATEofEXPENSE" class="form-control"   min="2020-01-01" max="{{ time }}" type="date" value={{ time }}  name="date"/>
 											  
 
 

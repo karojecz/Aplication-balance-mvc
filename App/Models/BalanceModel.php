@@ -234,21 +234,70 @@ class BalanceModel extends \Core\Model
 		
 	}
 	
-	public static function setLimitForCategory($limit,$category)
+	public static function setLimitForCategory($limit,$categoryID)
 	{
-	 $sql = 'UPDATE expenses_category_assigned_to_users SET category_limit=:limit WHERE user_id=:user_id AND name=:category';
+	 $sql = 'UPDATE expenses_category_assigned_to_users SET category_limit=:limit WHERE  id=:categoryID';
 
         $db = static::getDB();
         $stmt = $db->prepare($sql);
 
-        $stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+        //$stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
         $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
-        $stmt->bindValue(':category',$category, PDO::PARAM_STR);
+        $stmt->bindValue(':categoryID',$categoryID, PDO::PARAM_STR);
        
 
         return $stmt->execute();
 		
 	}
+	public static function checkLimit($catID)
+	{
+		$sql='SELECT category_limit FROM expenses_category_assigned_to_users WHERE id=:id ';
+		
+		$db = static::getDB();
+         $stmt = $db->prepare($sql);
+		 
+		//$stmt->bindValue(':user_id',$id, PDO::PARAM_INT);
+		$stmt->bindValue(':id', $catID, PDO::PARAM_INT);
+		//$stmt->bindValue(':name', $category_name, PDO::PARAM_STR);
+		//$stmt->bindValue(':table_name', $table_name, PDO::PARAM_STR);
+		 
+		 		$stmt->execute();
+
+				$result = $stmt->fetch();
+				return $result;	
+	}
+	public static function getAmount($catID,$date)
+	{
+		
+		$first_day=date("Y-m-01", strtotime($date));
+		$last_day=date("Y-m-t", strtotime($date));
+		
+	//$first_day='2022-01-01';
+	//	$last_day='2022-11-30';
+		
+		
+				$sql='SELECT SUM(amount) AS sum FROM expenses WHERE expense_category_assigned_to_user_id=:id AND date_of_expense BETWEEN :first_day AND :last_day';
+		
+		$db = static::getDB();
+         $stmt = $db->prepare($sql);
+		 
+		//$stmt->bindValue(':user_id',$id, PDO::PARAM_INT);
+		$stmt->bindValue(':id', $catID, PDO::PARAM_INT);
+		$stmt->bindValue(':first_day', $first_day, PDO::PARAM_STR);
+		$stmt->bindValue(':last_day', $last_day, PDO::PARAM_STR);
+		
+		//$stmt->bindValue(':name', $category_name, PDO::PARAM_STR);
+		//$stmt->bindValue(':table_name', $table_name, PDO::PARAM_STR);
+		 
+		 		$stmt->execute();
+
+				$result = $stmt->fetch();
+				return $result;	
+		
+		
+		
+	}
+	
 
 
 	public static function  get_user_category_id($table_name, $category_name)

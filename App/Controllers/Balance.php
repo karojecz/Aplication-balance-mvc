@@ -174,6 +174,33 @@ class Balance extends Authenticated
 		}
 		
     }
+	public  function checkLimit()
+	{
+		
+		
+		$catID = $this->route_params['id'];	
+	
+	 
+		echo json_encode( BalanceModel::checkLimit($catID),JSON_UNESCAPED_UNICODE);
+		
+		
+	}
+	public function getAmount()
+	{
+		
+		$catID = $this->route_params['id'];	
+		$date = $_GET['date2'];
+		
+		
+		//echo json_encode(date("Y-m-t", strtotime($date)));
+		//echo json_encode(date("Y-m-01", strtotime($date)));
+		
+		
+		
+		echo json_encode(BalanceModel::getAmount($catID,$date),JSON_UNESCAPED_UNICODE);
+		
+		
+	}
 	   
   public static function  getDoubleCalender()
   {

@@ -74,10 +74,14 @@ document.getElementById('myBtnEdit').onclick = function() {
 //set limit
 
 function testLIMIT(){
-	 e = document.getElementById("categoryslimit");
+	 e = document.getElementById("categoryslimitExpense");
 		 x=e.options[e.selectedIndex].id;
-	console.log(x);
+	//console.log(x);
 	//console.log(f);
+	
+	fetch(`/balance/fetchCategory/:${id}`)
+	 .then((response) => response.json())
+	.then((data) => console.log(data));
 	
 
 	
@@ -87,10 +91,15 @@ function testLIMIT(){
 
 
 
+
+
 document.getElementById('myBtnLimit').onclick = function() {
 	var myModal = new bootstrap.Modal(document.getElementById('limit_modal'))
 	
-	document.getElementById("inputNameModalHidenLimit").value = e.value;
+	let selectedCategory = document.getElementById("categoryslimit");
+		 let catID=selectedCategory.options[selectedCategory.selectedIndex].id;
+	
+	document.getElementById("inputNameModalHidenLimit").value = catID;
 	myModal.show();
 	/*
     var radios = document.getElementsByName('old_category');
