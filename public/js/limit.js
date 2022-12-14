@@ -1,3 +1,72 @@
+
+	var residueLimit;
+	var InputAmount;
+	
+	 function show_limit_alert(){
+		
+
+	let amountInputValue = document.getElementById('expenseAmount').value;
+	
+	document.getElementById("limit_alert").innerHTML = 'the limit will be exceeded' ;
+	$('#limit_alert').show();
+	
+
+				
+					 setTimeout(function () {
+				$( "#limit_alert" ).hide('fade');
+				},5000);
+
+		
+		
+	}
+	function getInputValue(){
+		
+		let InputValue = document.getElementById('expenseAmount').value;
+		InputAmount = InputValue;
+		
+		console.log(InputValue);
+		
+			if(InputAmount!=null){
+				if(InputAmount>residueLimit){
+					console.log('limit');
+					show_limit_alert();
+				}
+				
+			}
+		
+		
+	}
+	function testPOST(){
+		
+					const data = { username: 'example' };
+					console.log(data);
+
+					fetch(`/balance/testPOST`, {
+					  method: 'POST', // or 'PUT'
+					  headers: {
+						'Content-Type': 'application/json',
+					  },
+					  body: JSON.stringify({"lubi ": 5} ),
+					})
+					 .then((response) => response.json())
+					  .then((data) => {
+						console.log('Success:', data);
+					  })
+					  .catch((error) => {
+						console.error('Error:', error);
+					  });
+					 
+					 
+		
+		
+	}
+	
+
+	
+
+	
+	
+	
 	function getCategoryId(){
 		let selectedCategory = document.getElementById("categoryslimit2");
 		 let catID=selectedCategory.options[selectedCategory.selectedIndex].id;
@@ -54,36 +123,31 @@
 		
 			let result = limitForCategory - amount;
 			console.log(result);
+			residueLimit = result;
 			
-			if(limitForCategory>amount){
-					document.getElementById("limit_alert").innerHTML = "limit!!!!" ;
-					$('#limit_alert').show();
-					
-
+			
+			if(InputAmount!=null){
+				if(InputAmount>residueLimit){
+					console.log('limit');
+					show_limit_alert();
+				}
 				
 			}
+			
+
 		}
 		
-		//console.log(catID);
-		//console.log(limitForCategory.category_limit);
-		//console.log(amount.sum);
+
 		
 	}
+	
 
 	
 	function getAmountFromCategory(){
 		
 		let catID=getCategoryId();
 		let date=getCategoryDate();
-		//let limitForCategory=checkLimit();
-		
-		/*
-		var date = getCategoryDate(), y = date.getFullYear(), m = date.getMonth();
-		var firstDay = new Date(y, m, 1);
-		var lastDay = new Date(y, m + 1, 0);
 
-		console.log(firstDay.toLocaleDateString());
-		*/
 		
 
 		
@@ -91,18 +155,8 @@
 		.then((data) => data.json())
 		.then((data) => data.sum);
 		
-		
-		
 
-		//.then((data)=>checkIfLimitExceeded(limitForCategory,data))
-		//.then(data => { obj = data;})
-
-		//.then(checkIfLimitExceeded(limitForCategory,obj))
-		
-		
-		
-		
-		
+				
 	}
 	
 	

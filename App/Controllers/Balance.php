@@ -142,6 +142,27 @@ class Balance extends Authenticated
 		}
 		
 	}
+	public  function testPOST()
+	{
+		var_dump('kik');
+		/*
+		$expense = new ExpenseModel($_POST);
+		
+		if($expense->save_expense()){
+			Flash::addMessage('Item added');
+			$this->redirect('/Balance/Expense');
+			
+		}else{
+			     View::renderTemplate('/Balance/Expense.html', [
+				 'categorys'=>BalanceModel::getCategorys('expenses_category_assigned_to_users'),
+                'expense' => $expense,
+				'payment_methods'=>ExpenseModel::getCategorys('payment_methods_assigned_to_users'),
+				'time'=>date("Y-m-d"),
+				'title'=>'Add expense',
+				]);
+		}
+		*/
+	}
 	
 	public function AddIncome($data)
     {
