@@ -1,65 +1,28 @@
 
-	var residueLimit;
+	
 	var InputAmount;
 	
-	 function show_limit_alert(){
+	function show_limit_alert(alertText,alertType){
 		
 
-	let amountInputValue = document.getElementById('expenseAmount').value;
-	
-	document.getElementById("limit_alert").innerHTML = 'the limit will be exceeded' ;
+	document.getElementById("limit_alert").className = alertType;
+	document.getElementById("limit_alert").innerHTML = alertText ;
 	$('#limit_alert').show();
 	
 
-				
-					 setTimeout(function () {
-				$( "#limit_alert" ).hide('fade');
-				},5000);
 
 		
 		
 	}
+	
 	function getInputValue(){
-		
-		let InputValue = document.getElementById('expenseAmount').value;
-		InputAmount = InputValue;
-		
-		console.log(InputValue);
-		
-			if(InputAmount!=null){
-				if(InputAmount>residueLimit){
-					console.log('limit');
-					show_limit_alert();
-				}
-				
-			}
-		
-		
-	}
-	function testPOST(){
-		
-					const data = { username: 'example' };
-					console.log(data);
+		checkIfLimitExceeded();
 
-					fetch(`/balance/testPOST`, {
-					  method: 'POST', // or 'PUT'
-					  headers: {
-						'Content-Type': 'application/json',
-					  },
-					  body: JSON.stringify({"lubi ": 5} ),
-					})
-					 .then((response) => response.json())
-					  .then((data) => {
-						console.log('Success:', data);
-					  })
-					  .catch((error) => {
-						console.error('Error:', error);
-					  });
-					 
-					 
-		
 		
 	}
+	
+
+
 	
 
 	
@@ -99,46 +62,69 @@
 		return date.getMonth();
 		
 	}
+
 	function getCategoryDate()
 	{
-		//const date = new Date(document.getElementById('DATEofEXPENSE').value);
-		const date = document.getElementById('DATEofEXPENSE').value;
+		
+		 let date = document.getElementById('DATEofEXPENSE').value;
 		return date;
 		
 	}
+	function checkNewDate(){
+		checkIfLimitExceeded();
+	}
+	
+	
 	async function checkIfLimitExceeded()
 	{
+		
+		let InputValue = document.getElementById('expenseAmount').value;
+		InputAmount = InputValue;
+		
+	
+		
 		
 		let catID= await getCategoryId();
 		let date= await getCategoryDate();
 		let amount = await  getAmountFromCategory();
 		let limitForCategory = await checkLimit();
-		
-		
-		
-		console.log(amount);
-		
-		console.log(limitForCategory);
-		if(amount !=null){
-		
-			let result = limitForCategory - amount;
-			console.log(result);
-			residueLimit = result;
-			
-			
-			if(InputAmount!=null){
-				if(InputAmount>residueLimit){
-					console.log('limit');
-					show_limit_alert();
-				}
-				
-			}
-			
 
+		
+		let difference = limitForCategory - amount;
+		let eneteredAmount = Number(InputValue)+Number(amount);
+	
+		let alertText = `
+		Limit=${limitForCategory}, issued so far=${amount}, difference=${difference}, expenses + entered amount=${eneteredAmount}`;
+		let alertType='alert alert-success collapse';
+		if(difference<0){
+			alertType='alert alert-danger collapse';
 		}
 		
+			if(InputAmount>0 && amount!=null && limitForCategory>0){
+
+			
+			
+			if(eneteredAmount>limitForCategory){
+				alertType='alert alert-danger collapse';
+				show_limit_alert(alertText,alertType);
+			}
+			else if(eneteredAmount<limitForCategory){
+				alertType='alert alert-success collapse'
+				show_limit_alert(alertText,alertType);
+			}
+				
+				
+			}else{
+				
+				$( "#limit_alert" ).hide('fade');
+			}
+			
+			
+		
+		
 
 		
+
 	}
 	
 

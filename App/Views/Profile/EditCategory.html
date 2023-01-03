@@ -208,24 +208,13 @@
 <form method="post" id="formExpenseCategory2" action="/profile/{{ action_title }}">
  
 			<div class="row p-2 bg-dark">
-				<select  id="categoryslimit" >
+				<select  id="categoryslimit" name="old_category">
 				{% for category in categorys %}
 					<option value="{{ category.name }}" id='{{ category.id }}'>{{ category.name }}</option>
 				{% endfor %}	
 				
 				</select>
-						{% for category in categorys %}
-						
-								<div class="col-md-4 ">
-									<div class="form-check">
-									  
-									  <label class="form-check-label" ><input type="radio" class="form-check-input" id="{{ category.id }}" name="old_category" value="{{ category.name }}" >{{ category.name }}</label>
-									</div>
-								</div>	
-						
-					
-
-				{% endfor %}
+	
 				
 			</div>
 			<div class="p-2">

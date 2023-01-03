@@ -45,38 +45,25 @@ if(!regex.test(comment)){
 
 
 //edit
+
+
 document.getElementById('myBtnEdit').onclick = function() {
 	
 	let selectedCategory = document.getElementById("categoryslimit");
-	let catID=selectedCategory.options[selectedCategory.selectedIndex].id;
-	console.log(catID);
-	/*
-    var radios = document.getElementsByName('old_category');
-	const lastItem = radios[radios.length - 1]
-    for (var radio of radios)
-    {
-		
-        if (radio.checked) {
-            
-			var myModal = new bootstrap.Modal(document.getElementById('editmodal'))
-			
-			myModal.show();
-			document.getElementById("inputNameModalHiden").value = radio.value;
-			document.getElementById("inputNameModal").value = radio.value;
-			
-			break;
-        }
-		if(lastItem==radio){
-			
-			$('#edit_radio_alert').show();
-			
-			
-			  $("#edit_radio_alert").delay(2000).fadeOut("normal");
-			  
-			   
-		}
-    }
-	*/
+	//let catID=selectedCategory.options[selectedCategory.selectedIndex].id;
+	let catName = selectedCategory.options[selectedCategory.selectedIndex].value;
+	let options = selectedCategory.options;
+	
+	var myModal = new bootstrap.Modal(document.getElementById('editmodal'))
+	myModal.show();
+	
+	document.getElementById("inputNameModalHiden").value = catName;
+	document.getElementById("inputNameModal").value = catName;
+	
+
+	
+
+
 }
 //set limit
 
@@ -146,6 +133,21 @@ document.getElementById('myBtnLimit').onclick = function() {
 //delete
 
 document.getElementById('myBtnDelete').onclick = function() {
+	
+		let selectedCategory = document.getElementById("categoryslimit");
+	
+	let catName = selectedCategory.options[selectedCategory.selectedIndex].value;
+	
+	
+	var myModal = new bootstrap.Modal(document.getElementById('delete_modal'))
+	myModal.show();
+	
+	document.getElementById("inputNameModalHiden_delete").value = catName;
+	
+	document.getElementById("delete_query_text").innerHTML = "Are You sure to delete " +catName+ " category?"
+	
+	
+	/*
     var radios = document.getElementsByName('old_category');
 	const lastItem = radios[radios.length - 1]
     for (var radio of radios)
@@ -176,6 +178,7 @@ document.getElementById('myBtnDelete').onclick = function() {
 			   
 		}
 }
+*/
 }
 
 $('#closemodal').click(function() {

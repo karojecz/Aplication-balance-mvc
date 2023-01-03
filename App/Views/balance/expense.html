@@ -32,7 +32,12 @@
         
     {% endif %}
 					<div id='text_area_alert'  class="alert alert-danger collapse" role="alert" ></div>
-					<div id='limit_alert'  class="alert alert-danger collapse" role="alert" ></div>
+					<div id='limit_alert'  class="alert alert-danger collapse" role="alert" >
+					
+
+									
+
+					</div>
 			
 			
 			
@@ -83,7 +88,7 @@
 				<div class="p-2">
 				<label for="date" >date of expense:</label>
 																
-				 <input id="DATEofEXPENSE" class="form-control"   min="2020-01-01" max="{{ time }}" type="date" value={{ time }}  name="date"/>
+				 <input id="DATEofEXPENSE" class="form-control" onchange="checkNewDate()"  min="2020-01-01" max="{{ time }}" type="date" value={{ time }}  name="date"/>
 											  
 
 
@@ -136,7 +141,7 @@
 				<button id="submit_btn"  name='submit_button' class="btn btn-secondary"   value="{{ title }}" type='submit'>Add {{ title }}</button>
 				
 				
-				<button id="testPOSTbtn"  onclick='testPOST()' class="btn btn-secondary"   value="{{ title }}" type='button'>Add test {{ title }}</button>
+				
 			</div>
 			
 			</form>
