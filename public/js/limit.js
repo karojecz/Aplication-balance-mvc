@@ -53,11 +53,11 @@
 	
 
 	function getCategoryMonth(){
-		//return document.getElementById();
+		
 		
 		const date = new Date(document.getElementById('DATEofEXPENSE').value);
 		
-		//console.log(date.getMonth());
+		
 		
 		return date.getMonth();
 		

@@ -84,9 +84,13 @@
 														<label for="inputNameModal">Name</label>
 														<input id="inputNameModal" name="category"   required class="form-control" />
 														<input id="inputNameModalHiden"  type="hidden" name="hiden_input_category"    class="form-control" />
+														
+														<input type="hidden" id="catId" name="catId" >
+														
 														<h6 class="modal-title" style="color:black" >set limit for category </h6>
-														<label class="form-check-label" style="color:black"><input type="radio" class="form-check-input" >set limit</label>
-														<input type="number" min='1' />
+														<label class="form-check-label" style="color:black">
+														<input id="limitCheckbox" type="checkbox"  class="form-check-input" >set limit</label>
+														<input name="InputLimit"  id="limitInput" type="number" min='1' disabled required/>
 														
 													</div>
 												   
@@ -108,49 +112,7 @@
     </div>
   </div>
 </div>
-<!-- Modal limit-->
-<div class="modal fade" id="limit_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" style="color:black" id="exampleModalLabel">Set Limit </h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-		
-        										<div class="container-fluid">
-											<div class="row">
-												<form method="post" id="limiy" action="/profile/{{ action_title }}">
-													<div class="form-group">
 
-														<input id="inputNameModalHidenLimit"  type="hidden" name="categoryID"    class="form-control" />
-														<h6 class="modal-title" style="color:black" >set limit for category </h6>
-														
-														<input type="number" min='1' name="limit"/>
-														
-													</div>
-												   
-														<div class="text-center p-2">
-															<button  name='limitbtn' type="submit"
-															
-															class="btn btn-success">Save</button>
-															<button  name='edit2' id="Cancel-edit-button" type="button" class="btn btn-danger">Cancel</button>
-														</div>
-
-												   
-
-
-											</form>
-											</div>
-										</div>
-
-					
-
-      </div>
-
-    </div>
-  </div>
-</div>
 
 
   <!-- Modal delete-->

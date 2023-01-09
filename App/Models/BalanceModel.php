@@ -218,6 +218,24 @@ class BalanceModel extends \Core\Model
 		
 	}
 
+
+	public static function setNewName($table_name, $catID,$newName)
+	{
+	 $sql = 'UPDATE '.$table_name.' SET name=:newName WHERE user_id=:user_id AND id=:id';
+
+        $db = static::getDB();
+        $stmt = $db->prepare($sql);
+
+        
+        $stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+        $stmt->bindValue(':id',$catID, PDO::PARAM_INT);
+		$stmt->bindValue(':newName',$newName, PDO::PARAM_STR);
+        
+
+        return $stmt->execute();
+		
+	}
+	/*
 	public static function setNewName($table_name, $oldName,$newName)
 	{
 	 $sql = 'UPDATE '.$table_name.' SET name=:newName WHERE user_id=:user_id AND name=:oldName';
@@ -233,7 +251,7 @@ class BalanceModel extends \Core\Model
         return $stmt->execute();
 		
 	}
-	
+	*/
 	public static function setLimitForCategory($limit,$categoryID)
 	{
 	 $sql = 'UPDATE expenses_category_assigned_to_users SET category_limit=:limit WHERE  id=:categoryID';

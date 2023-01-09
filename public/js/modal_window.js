@@ -1,5 +1,3 @@
-let e;
-let x;
 
 //add new category
 
@@ -52,12 +50,18 @@ document.getElementById('myBtnEdit').onclick = function() {
 	let selectedCategory = document.getElementById("categoryslimit");
 	//let catID=selectedCategory.options[selectedCategory.selectedIndex].id;
 	let catName = selectedCategory.options[selectedCategory.selectedIndex].value;
+	
+	let catID = selectedCategory.options[selectedCategory.selectedIndex].id;
+	
 	let options = selectedCategory.options;
 	
 	var myModal = new bootstrap.Modal(document.getElementById('editmodal'))
 	myModal.show();
 	
 	document.getElementById("inputNameModalHiden").value = catName;
+	
+	document.getElementById("catId").value = catID;
+	
 	document.getElementById("inputNameModal").value = catName;
 	
 
@@ -67,21 +71,24 @@ document.getElementById('myBtnEdit').onclick = function() {
 }
 //set limit
 
-function testLIMIT(){
-	 e = document.getElementById("categoryslimitExpense");
-		 x=e.options[e.selectedIndex].id;
-	//console.log(x);
-	//console.log(f);
-	
-	fetch(`/balance/fetchCategory/:${id}`)
-	 .then((response) => response.json())
-	.then((data) => console.log(data));
-	
+document.getElementById('limitCheckbox').onchange = function() {
+    document.getElementById('limitInput').disabled = !this.checked;
+};
 
+/*
+function enableInput(){
 	
+	
+	if(limitCheckbox.checked){
+		document.getElementByID("limitInput").disabled = false;
+		
+	}else{
+		document.getElementByID("limitInput").disabled = true;
+		
+	}
+		
 }
-
-
+*/
 
 
 
@@ -95,38 +102,7 @@ document.getElementById('myBtnLimit').onclick = function() {
 	
 	document.getElementById("inputNameModalHidenLimit").value = catID;
 	myModal.show();
-	/*
-    var radios = document.getElementsByName('old_category');
-	const lastItem = radios[radios.length - 1]
-    for (var radio of radios)
-    {
-		
-        if (radio.checked) {
-            //alert(radio.value);
-			var myModal = new bootstrap.Modal(document.getElementById('delete_modal'))
-			
-			myModal.show();
-			var value=radio.value;
-			document.getElementById("inputNameModalHiden_delete").value = radio.value;
-			document.getElementById("delete_query_text").innerHTML = "Are You sure to delete " +value+ " category?" ;
-			//document.getElementById("inputNameModal").value = radio.value;
-			
-			break;
-        
-		
 
-    }
-	if(lastItem==radio){
-			
-			$('#edit_radio_alert').show();
-			
-			
-			  $("#edit_radio_alert").delay(2000).fadeOut("normal");
-			  
-			   
-		}
-}
-*/
 }
 
 
