@@ -94,18 +94,6 @@ function enableInput(){
 
 
 
-document.getElementById('myBtnLimit').onclick = function() {
-	var myModal = new bootstrap.Modal(document.getElementById('limit_modal'))
-	
-	let selectedCategory = document.getElementById("categoryslimit");
-		 let catID=selectedCategory.options[selectedCategory.selectedIndex].id;
-	
-	document.getElementById("inputNameModalHidenLimit").value = catID;
-	myModal.show();
-
-}
-
-
 //delete
 
 document.getElementById('myBtnDelete').onclick = function() {
