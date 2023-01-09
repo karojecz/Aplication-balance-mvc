@@ -75,8 +75,8 @@ class Profile extends Authenticated
 	}
 	public function setLimitForCategory()
 	{
-		$limit = $_POST['limit'];
-		$category = $_POST['categoryID'];
+		$limit = $_POST['InputLimit'];
+		$category = $_POST['catId'];
 
 		if(BalanceModel::setLimitForCategory($limit,$category)){
 			Flash::addMessage('Changes saved');
@@ -149,44 +149,44 @@ class Profile extends Authenticated
 	}
 	public function saveEditCategorysAction($table_name)
 	{
-		if(isset($_POST['InputLimit'])){
-				var_dump($_POST['InputLimit']);
-		}
+
 		
-		/*
+		
 			if(isset($_POST['category'])){
 					$name_to_edit=$_POST['category'];
 					$old=$_POST['hiden_input_category'];
 					$catID = $_POST['catId'];
 
 
-				if(!BalanceModel::check_if_category_exist($table_name,$_POST['category'])){
+				
 					
 					
 					
 				if(BalanceModel::setNewName($table_name,$catID,$name_to_edit)){
 
+				if(isset($_POST['InputLimit'])){
+					Profile::setLimitForCategory();
+				}
 				
 				Flash::addMessage('Name changed');
 				$this->redirect('/profile/ExpenseCategory');
+				
+				
+				
 				}
 				else{
 					Flash::addMessage('Error.Name not changed');
 					$this->redirect('/profile/ExpenseCategory');
 				}
 				
-				}	else{
-					Flash::addMessage('this category alerady exist', Flash::WARNING);
-					$this->redirect('/profile/ExpenseCategory');
-				}
+					
 				
-				
-			}
-			else{
+			
+			}else{
 					Flash::addMessage('Selecet category first', Flash::WARNING);
 					$this->redirect('/profile/'.$name.'Category');
 				}
-		*/
+		
 	}
 /*
 	public function saveEditCategorysAction($table_name)
