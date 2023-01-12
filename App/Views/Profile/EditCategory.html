@@ -176,7 +176,7 @@
 						
 					
 							{{ category.name }}
-							limit
+							
 						
 						
 					</option>
@@ -185,7 +185,29 @@
 				
 				</select>
 	
-				
+					  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+						Button with data-bs-target
+					  </button>
+								 <div class="collapse" id="collapseExample">
+									<ul class="list-group">								
+									
+										{% for category in categorys %}
+											<li class="list-group-item" >
+												<div class="form-check">
+													<label>
+														<input class="form-check-input" name="flexRadioDefault" type="radio"  value="{{ category.name }}" id='{{ category.id }}' >
+														{{ category.name }}
+		
+													</label>
+												</div>
+												
+												<div class="d-flex justify-content-end"><button>button</button></div>
+												
+												
+											</li>
+										{% endfor %}	
+									</ul>
+								</div>
 			</div>
 			<div class="p-2">
 			
