@@ -170,9 +170,17 @@
 <form method="post" id="formExpenseCategory2" action="/profile/{{ action_title }}">
  
 			<div class="row p-2 bg-dark">
-				<select  id="categoryslimit" name="old_category">
+				<select  class="form-select" aria-label="Default select example" id="categoryslimit" name="old_category">
 				{% for category in categorys %}
-					<option value="{{ category.name }}" id='{{ category.id }}'>{{ category.name }}</option>
+					<option value="{{ category.name }}" id='{{ category.id }}'>
+						
+					
+							{{ category.name }}
+							limit
+						
+						
+					</option>
+						
 				{% endfor %}	
 				
 				</select>
