@@ -155,6 +155,24 @@
       "css": "bank",
       "code": 61852,
       "src": "fontawesome"
+    },
+    {
+      "uid": "c77fd2fd065b5fe16d6f2b41e190b266",
+      "css": "pencil",
+      "code": 59412,
+      "src": "entypo"
+    },
+    {
+      "uid": "667b873c8422e4cab006df8422cb51c5",
+      "css": "pencil-1",
+      "code": 59413,
+      "src": "iconic"
+    },
+    {
+      "uid": "242giivkgr3e6le7b2xqi2pkdruf85mu",
+      "css": "edit",
+      "code": 59414,
+      "src": "modernpics"
     }
   ]
 }

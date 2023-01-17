@@ -19,6 +19,9 @@
 .icon-credit-card:before { content: '\e811'; } /* '' */
 .icon-credit-card-1:before { content: '\e812'; } /* '' */
 .icon-credit-card-2:before { content: '\e813'; } /* '' */
+.icon-pencil:before { content: '\e814'; } /* '' */
+.icon-pencil-1:before { content: '\e815'; } /* '' */
+.icon-edit:before { content: '\e816'; } /* '' */
 .icon-money-1:before { content: '\f0d6'; } /* '' */
 .icon-plus-squared:before { content: '\f0fe'; } /* '' */
 .icon-attention-alt:before { content: '\f12a'; } /* '' */

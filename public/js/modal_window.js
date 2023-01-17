@@ -55,7 +55,7 @@ document.getElementById('myBtnEdit').onclick = function() {
 	
 	let options = selectedCategory.options;
 	
-	var myModal = new bootstrap.Modal(document.getElementById('editmodal'))
+	var myModal = new bootstrap.Modal(document.getElementById('editCategoryModal'))
 	myModal.show();
 	
 	document.getElementById("inputNameModalHiden").value = catName;
@@ -69,6 +69,26 @@ document.getElementById('myBtnEdit').onclick = function() {
 
 
 }
+//edit list version
+document.querySelectorAll("button[name=SwitchEditCategoryButton]").forEach(occurence => {
+  let catID = occurence.getAttribute('id');
+  let catName = occurence.getAttribute('value');
+  occurence.addEventListener('click', function() {
+    
+   
+   	document.getElementById("inputNameModalHiden").value = catName;
+	
+	document.getElementById("catId").value = catID;
+	
+	document.getElementById("inputNameModal").value = catName;
+   
+   
+   
+  } );
+});
+
+
+
 //set limit
 
 document.getElementById('limitCheckbox').onchange = function() {

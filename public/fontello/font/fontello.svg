@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg">
-<metadata>Copyright (C) 2022 by original authors @ fontello.com</metadata>
+<metadata>Copyright (C) 2023 by original authors @ fontello.com</metadata>
 <defs>
 <font id="fontello" horiz-adv-x="1000" >
 <font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
@@ -45,6 +45,12 @@
 <glyph glyph-name="credit-card-1" unicode="&#xe812;" d="M900 700q42 0 71-30t29-70l0-500q0-42-29-71t-71-29l-800 0q-40 0-70 29t-30 71l0 500q0 40 30 70t70 30l800 0z m0-600l0 300-800 0 0-300 800 0z m0 450l0 50-800 0 0-50 800 0z m-700-256l30 0 0-30-30 0 0 30z m180-60l30 0 0 30 30 0 0 30 60 0 0-30-30 0 0-30-30 0 0-30-60 0 0 30z m120-30l-30 0 0 30 30 0 0-30z m-150 0l-60 0 0 30 60 0 0-30z m30 60l0-30-30 0 0 60 60 0 0-30-30 0z m-120-30l0-30-60 0 0 30 30 0 0 30 30 0 0 30 60 0 0-30-30 0 0-30-30 0z" horiz-adv-x="1000" />
 
 <glyph glyph-name="credit-card-2" unicode="&#xe813;" d="M729 688q65 0 110-46t46-110l0-364q0-65-46-111t-110-45l-573 0q-65 0-110 45t-46 111l0 364q0 65 46 110t110 46l573 0z m52-520l0 208-677 0 0-208q0-21 15-37t37-15l573 0q21 0 37 15t15 37z m0 313l0 51q0 21-15 37t-37 15l-573 0q-21 0-37-15t-15-37l0-51 677 0z m-208-262q-25 0-25 27t25 26l105 0q25 0 25-26t-25-27l-105 0z" horiz-adv-x="885" />
+
+<glyph glyph-name="pencil" unicode="&#xe814;" d="M718 680q32-32 47-64t15-48l0-16-252-252-290-288-238-52 50 240 290 288 252 252q54 12 126-60z m-494-640l24 24q-2 44-52 94-22 22-45 35t-35 13l-14 2-22-24-18-80q28-16 46-34 24-24 36-48z" horiz-adv-x="780" />
+
+<glyph glyph-name="pencil-1" unicode="&#xe815;" d="M846 732q66-66 66-158t-66-157l-512-514-316 0 1 318 511 511q65 65 158 65t158-65z m-558-716l478 479-158 157-474-473q34 29 78 27t75-32q32-32 32-79t-32-79l1 0z" horiz-adv-x="928" />
+
+<glyph glyph-name="edit" unicode="&#xe816;" d="M90 589l0-593 444 0 0 262 90 101 0-453-624 0 0 760 541 0-75-77-376 0z m749 180c35-34 32-88-3-124l-57-56 17 75-63 64-74-17 56 57c35 35 90 35 124 1z m-219-99c0 3 65 20 75 23l1 1 67-69c-4 0-23-75-23-75l-371-384-159-36-2 1 41 158z m-247-422l-45 46-35-6-23-22-10-40 46-45 39 9 23 23z" horiz-adv-x="864" />
 
 <glyph glyph-name="money-1" unicode="&#xf0d6;" d="M429 207h214v54h-72v250h-63l-83-77 43-44q24 20 31 31h1v-160h-71v-54z m285 143q0-39-11-79t-34-75-56-56-77-22-77 22-57 56-33 75-12 79 12 79 33 75 57 56 77 22 77-22 56-56 34-75 11-79z m286-143v286q-59 0-101 42t-42 101h-643q0-59-42-101t-101-42v-286q60 0 101-42t42-101h643q0 59 42 101t101 42z m71 464v-642q0-15-10-25t-25-11h-1000q-15 0-25 11t-11 25v642q0 15 11 26t25 10h1000q14 0 25-10t10-26z" horiz-adv-x="1071.4" />
 
