@@ -195,8 +195,7 @@
 											<li class="list-group-item" >
 													<div class="d-flex">
 														<div class="form-check flex-grow-1 ">
-															<label>
-																<input class="form-check-input" name="flexRadioDefault" type="radio"  value="{{ category.name }}" id='{{ category.id }}' >
+														
 																	
 																		<div>	
 																			{{ category.name }}
@@ -205,7 +204,6 @@
 																	
 
 				
-															</label>
 																																																				<div class="text-secondary">
 																				{% if category.category_limit != 0 %}
 																					Limit: {{ category.category_limit }}
@@ -216,13 +214,18 @@
 														<div>
 															<button type="button" class="btn btn-outline-secondary" 
 															value="{{ category.name }}" id='{{ category.id }}'
+															
 															name="SwitchEditCategoryButton"
 															
 															data-bs-toggle="modal" data-bs-target="#editCategoryModal">
 																<i class="icon-pencil"></i>
 															</button>
 														
-															<button type="button" class="btn btn-outline-secondary">
+															<button type="button" class="btn btn-outline-secondary"
+															value="{{ category.name }}"
+															data-bs-toggle="modal" data-bs-target="#delete_modal" name="SwitchDeleteCategoryButton"
+															data-catID='{{ category.id }}'
+															>
 																<i class="icon-trash-empty"></i>
 															</button>
 															
@@ -242,15 +245,8 @@
 				<div class="d-inline p-2">
 						<button id='myBtnAdd' class="btn btn-secondary" type="button" name="new" >Add new category</button>
 				</div>	
-				<div class="d-inline p-2">
-						
-						<button class="btn btn-secondary" id="myBtnDelete" type="button" name="delete" class="bnt bnt-default">Delete category</button>
-				</div>	
-				<div class="d-inline p-2">
-					
-						<button type="button" class="btn btn-secondary" id="myBtnEdit" >Edit</button>
-						 
-				</div>
+
+
 
 				<div class="d-inline p-2">
 					<a class="btn btn-danger" href="/profile/show">Cancel</a>

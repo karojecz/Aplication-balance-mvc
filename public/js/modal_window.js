@@ -44,7 +44,7 @@ if(!regex.test(comment)){
 
 //edit
 
-
+/*
 document.getElementById('myBtnEdit').onclick = function() {
 	
 	let selectedCategory = document.getElementById("categoryslimit");
@@ -69,6 +69,7 @@ document.getElementById('myBtnEdit').onclick = function() {
 
 
 }
+*/
 //edit list version
 document.querySelectorAll("button[name=SwitchEditCategoryButton]").forEach(occurence => {
   let catID = occurence.getAttribute('id');
@@ -114,56 +115,24 @@ function enableInput(){
 
 
 
-//delete
+//delete list version
 
-document.getElementById('myBtnDelete').onclick = function() {
-	
-		let selectedCategory = document.getElementById("categoryslimit");
-	
-	let catName = selectedCategory.options[selectedCategory.selectedIndex].value;
-	
-	
-	var myModal = new bootstrap.Modal(document.getElementById('delete_modal'))
-	myModal.show();
-	
+document.querySelectorAll("button[name=SwitchDeleteCategoryButton]").forEach(occurence => {
+  let catID = occurence.getAttribute('data-catID');
+  let catName = occurence.getAttribute('value');
+  occurence.addEventListener('click', function() {
+    
+   
 	document.getElementById("inputNameModalHiden_delete").value = catName;
 	
 	document.getElementById("delete_query_text").innerHTML = "Are You sure to delete " +catName+ " category?"
-	
-	
-	/*
-    var radios = document.getElementsByName('old_category');
-	const lastItem = radios[radios.length - 1]
-    for (var radio of radios)
-    {
-		
-        if (radio.checked) {
-            //alert(radio.value);
-			var myModal = new bootstrap.Modal(document.getElementById('delete_modal'))
-			
-			myModal.show();
-			var value=radio.value;
-			document.getElementById("inputNameModalHiden_delete").value = radio.value;
-			document.getElementById("delete_query_text").innerHTML = "Are You sure to delete " +value+ " category?" ;
-			//document.getElementById("inputNameModal").value = radio.value;
-			
-			break;
-        
-		
+   
+   
+   
+  } );
+});
 
-    }
-	if(lastItem==radio){
-			
-			$('#edit_radio_alert').show();
-			
-			
-			  $("#edit_radio_alert").delay(2000).fadeOut("normal");
-			  
-			   
-		}
-}
-*/
-}
+
 
 $('#closemodal').click(function() {
     $('#delete_modal').modal('hide');
