@@ -31,9 +31,23 @@
 	
 	
 	function getCategoryId(){
+		
+		const radioButtons = document.querySelectorAll('input[name="category"]');
+		
+		let catID;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    catID = radioButton.id;
+                    break;
+                }
+            }
+		
+		
+		/*
 		let selectedCategory = document.getElementById("categoryslimit2");
 		 let catID=selectedCategory.options[selectedCategory.selectedIndex].id;
-		 
+		*/
+		
 		 return catID;
 		
 	}
@@ -89,7 +103,7 @@
 		let amount = await  getAmountFromCategory();
 		let limitForCategory = await checkLimit();
 
-		
+		console.log(catID);
 		let difference = limitForCategory - amount;
 		let eneteredAmount = Number(InputValue)+Number(amount);
 	
