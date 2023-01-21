@@ -21,6 +21,9 @@
 		
 	}
 	
+var radios = document.querySelectorAll('input[type=radio][name="category"]');
+    radios.forEach(radio => radio.addEventListener('change', () => checkIfLimitExceeded()));
+	
 
 
 	
@@ -101,20 +104,24 @@
 		let catID= await getCategoryId();
 		let date= await getCategoryDate();
 		let amount = await  getAmountFromCategory();
+		let actualAmount=Number(amount);
 		let limitForCategory = await checkLimit();
 
-		console.log(catID);
+		
 		let difference = limitForCategory - amount;
 		let eneteredAmount = Number(InputValue)+Number(amount);
 	
 		let alertText = `
-		Limit=${limitForCategory}, issued so far=${amount}, difference=${difference}, expenses + entered amount=${eneteredAmount}`;
+		Limit=${limitForCategory}, issued so far=${actualAmount}, difference=${difference}, expenses + entered amount=${eneteredAmount}`;
 		let alertType='alert alert-success collapse';
+		
+		
+		
 		if(difference<0){
 			alertType='alert alert-danger collapse';
 		}
 		
-			if(InputAmount>0 && amount!=null && limitForCategory>0){
+			if(InputAmount>0 && limitForCategory>0){
 
 			
 			
