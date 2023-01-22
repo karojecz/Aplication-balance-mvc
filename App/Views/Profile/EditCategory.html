@@ -87,10 +87,15 @@
 														
 														<input type="hidden" id="catId" name="catId" >
 														
-														<h6 class="modal-title" style="color:black" >set limit for category </h6>
-														<label class="form-check-label" style="color:black">
-														<input id="limitCheckbox" type="checkbox"  class="form-check-input" >set limit</label>
-														<input name="InputLimit"  id="limitInput" type="number" min='1' disabled required/>
+														
+														{% if limit_option %}
+														<div>
+																<h6 class="modal-title" style="color:black" >set limit for category </h6>
+																<label class="form-check-label" style="color:black">
+																<input id="limitCheckbox" type="checkbox"  class="form-check-input" >set limit</label>
+																<input name="InputLimit"  id="limitInput" type="number" min='1' disabled required/>
+														</div>
+														{% endif %}
 														
 													</div>
 												   
@@ -168,12 +173,25 @@
 
     
 <form method="post" id="formExpenseCategory2" action="/profile/{{ action_title }}">
+
+						<div class="p-2">
+			
+				<div class="d-inline p-2">
+						<button id='myBtnAdd' class="btn btn-secondary" type="button" name="new" >Add new category</button>
+				</div>	
+
+
+
+				<div class="d-inline p-2">
+					<a class="btn btn-danger" href="/profile/show">Cancel</a>
+				</div>
+			</div>
  
 			<div class="row p-2 bg-dark">
 
 	
-					  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-						Select category
+					  <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+						Select category to edit
 					  </button>
 								 <div class="collapse" id="collapseExample">
 									<ul class="list-group">								
@@ -227,18 +245,7 @@
 									</ul>
 								</div>
 			</div>
-			<div class="p-2">
-			
-				<div class="d-inline p-2">
-						<button id='myBtnAdd' class="btn btn-secondary" type="button" name="new" >Add new category</button>
-				</div>	
 
-
-
-				<div class="d-inline p-2">
-					<a class="btn btn-danger" href="/profile/show">Cancel</a>
-				</div>
-			</div>
 			
      </form>  
 	   

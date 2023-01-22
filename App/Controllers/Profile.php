@@ -103,6 +103,7 @@ class Profile extends Authenticated
 		'user'=>$this->user,
 		'categorys'=>BalanceModel::getCategorys('expenses_category_assigned_to_users'),
 		'action_title'=>'editExpenseCategory',
+		'limit_option'=>true,
 		'title'=>'Expense'
 		]);
 	}
