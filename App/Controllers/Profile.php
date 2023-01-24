@@ -49,7 +49,7 @@ class Profile extends Authenticated
 
     
 	}else if(isset($_POST['edit'])){
-		Profile::saveEditCategorysAction($tableName);
+		Profile::saveEditCategorysAction($tableName,$name);
 		
 		
 	}
@@ -148,7 +148,7 @@ class Profile extends Authenticated
 			$this->redirect('/profile/ExpenseCategory');
 		}
 	}
-	public function saveEditCategorysAction($table_name)
+	public function saveEditCategorysAction($table_name,$name)
 	{
 
 		
@@ -170,14 +170,14 @@ class Profile extends Authenticated
 				}
 				
 				Flash::addMessage('Name changed');
-				$this->redirect('/profile/ExpenseCategory');
+				$this->redirect('/profile/'.$name.'Category');
 				
 				
 				
 				}
 				else{
 					Flash::addMessage('Error.Name not changed');
-					$this->redirect('/profile/ExpenseCategory');
+					$this->redirect('/profile/'.$name.'Category');
 				}
 				
 					
@@ -306,7 +306,7 @@ class Profile extends Authenticated
 		}
 		
 	}
-	public function saveEditIncomesCategorysAction ()
+	public function saveEditIncomesCategorysAction()
 	{
 		if(isset($_POST['category'])){
 			$name_to_edit=$_POST['category'];

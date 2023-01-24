@@ -92,10 +92,12 @@ document.querySelectorAll("button[name=SwitchEditCategoryButton]").forEach(occur
 
 //set limit
 
+if ( document.getElementById('limitCheckbox') != null){
+
 document.getElementById('limitCheckbox').onchange = function() {
     document.getElementById('limitInput').disabled = !this.checked;
 };
-
+}
 /*
 function enableInput(){
 	
@@ -125,9 +127,9 @@ document.querySelectorAll("button[name=SwitchDeleteCategoryButton]").forEach(occ
    
 	document.getElementById("inputNameModalHiden_delete").value = catName;
 	
-	document.getElementById("delete_query_text").innerHTML = "Are You sure to delete " +catName+ " category?"
+	document.getElementById("delete_query_text").innerHTML = "Are You sure to delete \"" +catName+ "\"category?";
    
-   
+ 
    
   } );
 });
